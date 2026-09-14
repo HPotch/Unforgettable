@@ -9,13 +9,13 @@ public class RayManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (!Instance) Instance = this;
         else Destroy(gameObject);
     }
 
     // Public variable
     [NonSerialized] public Collider2D mouseOver;
-    [NonSerialized] public Vector2 mouseWorldPos;
+    [NonSerialized] public Vector2 mouseWorldPos;   
     
     // Settings
     [SerializeField] private Camera cam;

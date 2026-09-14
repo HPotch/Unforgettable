@@ -1,20 +1,35 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Grid : MonoBehaviour
 {
+    public static Grid Instance;
+    
     [SerializeField] private int width = 4;
     [SerializeField] private float spacing = 20f;
     [SerializeField] private GameObject squarePrefab;
-    [SerializeField] private bool update = false;
 
+    public void CheckGrid()
+    {
+        foreach (GridPart child in GetComponentsInChildren(typeof(GridPart)))
+        {
+            if (!child.Filled) return;
+        }
+        print("Won!");
+    }
+    
     private void Awake()
     {
+        if (!Instance) Instance = this;
+        else Destroy(gameObject);
         UpdateGrid();
     }
 
     private void Update()
     {
-        if (update) UpdateGrid();
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+            foreach (GridPart child in transform.GetComponentsInChildren<GridPart>())
+                child.Filled = false;
     }
     
     private void UpdateGrid()
