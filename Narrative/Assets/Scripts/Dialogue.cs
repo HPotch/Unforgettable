@@ -18,14 +18,12 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            if (_currentIndex >= audioClips.Count) return;
-            AudioManager.Instance.StopAllAudio(audioClips[_currentIndex]);
-            _currentIndex++;
-            if (_currentIndex >= audioClips.Count) return;
-            PlayClip(audioClips[_currentIndex]);
-        }
+        if (!Keyboard.current.spaceKey.wasPressedThisFrame) return;
+        if (_currentIndex >= audioClips.Count) return;
+        AudioManager.Instance.StopAllAudio(audioClips[_currentIndex]);
+        _currentIndex++;
+        if (_currentIndex >= audioClips.Count) return;
+        PlayClip(audioClips[_currentIndex]);
     }
 
     private void PlayClip(AudioClip clip)
