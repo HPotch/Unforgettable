@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using EasyTextEffects;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,19 +13,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Transform textObject;
     
     // Public variables
-    [NonSerialized] public bool completed = true;
-    [NonSerialized] public bool exiting = false;
+    [NonSerialized] public bool Completed = true;
+    [NonSerialized] public bool Exiting = false;
+    [NonSerialized] public float TimeSinceText = 0f;
+    [NonSerialized] public DialogueComponent TargetDC;
     
     // Private references
     private TextMeshPro _textMesh;
     private TextEffect _textEffect;
     private TextObject _textObject;
     private Material _textMaterial;
-    
-    //  Private variables
-    private String _targetText = "";
-    private Color _targetColor = Color.white;
-    private float _targetFontSize = 6f;
     
     // Custom classes
     [Serializable]
@@ -33,6 +31,9 @@ public class DialogueManager : MonoBehaviour
         public String text;
         public Color color = Color.white;
         public float fontSize = 6f;
+        public float autoSkipTime = 0f;
+        public UnityEvent OnStart;
+        public UnityEvent OnEnd;
     }
     
     private void Awake()
@@ -49,21 +50,25 @@ public class DialogueManager : MonoBehaviour
         _textObject.OnEntered.AddListener(Complete);
         _textObject.OnExited.AddListener(NextDialogue);
     }
-    
+
+    private void Update()
+    {
+        TimeSinceText += Time.deltaTime;
+    }
+
     public void Complete()
     {
         _textEffect.StopAllEffects();
         _textMesh.color = Color.white;
-        _textMaterial.SetColor("_FaceColor", _targetColor);
-        completed = true;
+        _textMaterial.SetColor("_FaceColor", TargetDC.color);
+        Completed = true;
     }
     
     public void ChangeDialogue(DialogueComponent text)
     {
-        if (exiting) return;
-        _targetText = text.text;
-        _targetColor = text.color;
-        _targetFontSize = text.fontSize;
+        if (Exiting) return;
+        TargetDC?.OnEnd.Invoke();
+        TargetDC = text;
         if (_textMesh.text == "")
         {
             NextDialogue();
@@ -71,18 +76,20 @@ public class DialogueManager : MonoBehaviour
         }
         _textEffect.StartManualEffect("ColorOut");
         _textEffect.StartManualEffect("ScaleOut");
-        exiting = true;
+        Exiting = true;
     }
 
     private void NextDialogue()
     {
-        _textMesh.text = _targetText;
-        _textMesh.fontSize = _targetFontSize;
+        _textMesh.text = TargetDC.text;
+        _textMesh.fontSize = TargetDC.fontSize;
         _textMesh.color = new Color(1, 1, 1, 0);
-        _textMaterial.SetColor("_FaceColor", _targetColor);
+        _textMaterial.SetColor("_FaceColor", TargetDC.color);
         _textEffect.Refresh();
-        completed = false;
-        exiting = false;
+        TargetDC.OnStart.Invoke();
+        TimeSinceText = 0f;
+        Completed = false;
+        Exiting = false;
     }
 
     
