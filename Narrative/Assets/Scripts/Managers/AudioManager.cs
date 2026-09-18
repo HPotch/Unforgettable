@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
@@ -20,10 +21,11 @@ public class AudioManager : MonoBehaviour
     [Serializable]
     public class AudioSettings
     {
-        public AudioClip clip;
+        public AudioClip[] clips;
         public float volume = 1, pitch = 1f;
         public float randomVolume, randomPitch, startFade, endFade, endLoop, pan;
         public bool loop;
+        public AudioMixerGroup mixerGroup; 
     }
     
     // Editor references
@@ -34,7 +36,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="endFade">The duration of a linear fade out</param>
     /// <param name="endLoop">The duration of the last part of the sound that will be looped indefinitely</param>
     /// </summary>
-    public AudioObject PlayAudio(AudioClip clip, float volume = 1f, float pitch = 1f, float startFade = 0f, float endFade = 0f, float endLoop = 0f, float pan = 0f, bool loop = false)
+    public AudioObject PlayAudio(AudioClip clip, float volume = 1f, float pitch = 1f, float startFade = 0f, float endFade = 0f, float endLoop = 0f, float pan = 0f, bool loop = false, AudioMixerGroup mixerGroup = null)
     {
         // Instantiate
         GameObject instance = Instantiate(audioObject, transform);
@@ -49,6 +51,7 @@ public class AudioManager : MonoBehaviour
         source.pitch = pitch;
         source.panStereo = pan;
         source.loop = loop && endLoop == 0f; // Disable loop if endLooping
+        source.outputAudioMixerGroup = mixerGroup;
         
         // Add to dictionary
         audio.gameObject.name = clip.name; // Mainly debugging and ocd lol
@@ -61,19 +64,14 @@ public class AudioManager : MonoBehaviour
         return audio;
     }
 
-    public AudioObject PlayRandomAudio(AudioClip[] clips, float volume = 1f, float pitch = 1f, float startFade = 0f, float endFade = 0f, float endLoop = 0f, float pan = 0f, bool loop = false)
+    public AudioObject PlayRandomAudio(AudioClip[] clips, float volume = 1f, float pitch = 1f, float startFade = 0f, float endFade = 0f, float endLoop = 0f, float pan = 0f, bool loop = false, AudioMixerGroup mixerGroup = null)
     {
-        return PlayAudio(clips[Random.Range(0, clips.Length)], volume, pitch, startFade, endFade, endLoop, pan, loop);
+        return PlayAudio(clips[Random.Range(0, clips.Length)], volume, pitch, startFade, endFade, endLoop, pan, loop, mixerGroup);
     }
     
     public AudioObject PlayAudioSettings(AudioSettings a)
     {
-        return PlayAudio(a.clip, a.volume + Random.Range(-a.randomVolume, a.randomVolume), a.pitch + Random.Range(-a.randomPitch, a.randomPitch), a.startFade, a.endFade, a.endLoop, a.pan, a.loop);
-    }
-
-    public AudioObject PlayRandomAudioSettings(AudioSettings[] a)
-    {
-        return PlayAudioSettings(a[Random.Range(0, a.Length)]);
+        return PlayAudio(a.clips[Random.Range(0, a.clips.Length)], a.volume + Random.Range(-a.randomVolume, a.randomVolume), a.pitch + Random.Range(-a.randomPitch, a.randomPitch), a.startFade, a.endFade, a.endLoop, a.pan, a.loop, a.mixerGroup);
     }
 
     public AudioObject GetFirstAudio(AudioClip clip)

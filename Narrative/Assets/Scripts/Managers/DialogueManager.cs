@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using EasyTextEffects;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class DialogueManager : MonoBehaviour
     [NonSerialized] public bool Exiting = false;
     [NonSerialized] public float TimeSinceText = 0f;
     [NonSerialized] public DialogueComponent TargetDC;
+    
+    // Events
+    public UnityEvent onTextExit;
+    public UnityEvent onTextEnter;
     
     // Private references
     private TextMeshPro _textMesh;
@@ -77,6 +82,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Exiting) return;
         TargetDC?.OnEnd.Invoke();
+        if (TargetDC != null && TargetDC?.text != "") onTextExit.Invoke();
         TargetDC = text;
         if (_textMesh.text == "")
         {
@@ -96,6 +102,7 @@ public class DialogueManager : MonoBehaviour
         _textMaterial.SetColor("_FaceColor", TargetDC.color);
         _textEffect.Refresh();
         TargetDC.OnStart.Invoke();
+        if (TargetDC?.text != "")onTextEnter.Invoke();
         TimeSinceText = 0f;
         Completed = false;
         Exiting = false;

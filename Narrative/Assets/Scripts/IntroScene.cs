@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,16 +16,18 @@ public class IntroScene : MonoBehaviour
     [SerializeField] private Animator topLid;
     [SerializeField] private Transform text;
     [SerializeField] private AudioSettings rain;
+    [SerializeField] private AudioSettings writing;
+    [SerializeField] private AudioSettings coffee;
+    [SerializeField] private SpriteRenderer heart;
     
     [Header("Settings")]
     [SerializeField] private float endFadeTime = 0.2f;
     [SerializeField] private float loopTime = 2f;
-    
+    [SerializeField] private float startWaitTime = 3f;
      
     // Private variables
     private int _audioIndex = 0;
-    private int _dialogueIndex = 0;
-    
+    public int _dialogueIndex = 0;
 
     public void NextAudio()
     {
@@ -53,23 +56,53 @@ public class IntroScene : MonoBehaviour
         text.position = new Vector2(0f, -4.35f);
     }
 
+    public void ShowHeart()
+    {
+        heart.enabled = true;
+    }
+    
+    public void HideHeart()
+    {
+        heart.enabled = false;
+    }
+
     private void Start()
     {
         PlayClip(audioClips[_audioIndex]);
-        DialogueManager.Instance.ChangeDialogue(dialogues[_dialogueIndex]);
         AudioManager.Instance.PlayAudioSettings(rain);
+        AudioManager.Instance.PlayAudioSettings(coffee);
+        StartCoroutine(StartWait());
+        DialogueManager.Instance.onTextEnter.AddListener(PlayWritingAudio);
+    }
+
+    private IEnumerator StartWait()
+    {
+        float timer = 0f;
+        while (timer < startWaitTime)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        DialogueManager.Instance.ChangeDialogue(dialogues[_dialogueIndex]);
         _dialogueIndex++;
+    }
+    
+    private void PlayWritingAudio()
+    {
+        AudioManager.Instance.PlayAudioSettings(writing);
     }
 
     private void Update()
     {
         DialogueManager dm = DialogueManager.Instance;
+        DialogueComponent dc = dm.TargetDC;
 
-        if (dm.TargetDC.skipState == DialogueManager.SkipState.NoSkip) return;
+        if (dc == null) return;
+        if (dc.skipState == DialogueManager.SkipState.NoSkip) return;
         if (dm.Exiting) return;
-        bool timeSkip = dm.Completed && dm.TargetDC?.autoSkipTime > 0f && dm.TimeSinceText > dm.TargetDC?.autoSkipTime;
-        bool keyboardSkip = Keyboard.current.spaceKey.wasPressedThisFrame && dm.TargetDC.skipState == DialogueManager.SkipState.Skippable;
-        if (!(keyboardSkip || timeSkip)) return;
+        bool timeSkip = dm.Completed && dc.autoSkipTime > 0f && dm.TimeSinceText > dc.autoSkipTime;
+        bool inputSkip = (Keyboard.current.anyKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame) && dc.skipState == DialogueManager.SkipState.Skippable;
+        if (!(inputSkip || timeSkip)) return;
 
         if (dm.Completed)
             NextDialogue();

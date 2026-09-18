@@ -60,6 +60,7 @@ public class AudioObject : MonoBehaviour
 
     private void Update()
     {
+        if (_source.loop) return;
         _currentTime += Time.deltaTime;
         
         // Startfade

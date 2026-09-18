@@ -8,6 +8,7 @@ public class Polaroid : MonoBehaviour
     [SerializeField] private Transform polaroid;
     [SerializeField] private SpriteRenderer background;
     [SerializeField] private SpriteRenderer dot;
+    [SerializeField] private SpriteRenderer button;
     
     [Header("Settings")]
     [SerializeField] private AnimationCurve polaroidEnterCurve;
@@ -45,17 +46,19 @@ public class Polaroid : MonoBehaviour
         Vector2 rotation = new Vector2(0f, 360f * polaroidRotationCircles);
         Vector2 darkening = new Vector2(0f, background.color.a);
         Vector2 lighting = new Vector2(0f, dot.color.a);
+        Vector2 buttonSize = new Vector2(0f, 0.2f);
 
         // Invert if exiting
         if (!enter)
         {
-            scale = InvertV2(scale); y = InvertV2(y); rotation = InvertV2(rotation); darkening = InvertV2(darkening); lighting = InvertV2(lighting);
+            scale = InvertV2(scale); y = InvertV2(y); rotation = InvertV2(rotation); darkening = InvertV2(darkening); lighting = InvertV2(lighting); buttonSize = InvertV2(buttonSize);
         }
         
         // Set active
         polaroid.gameObject.SetActive(true);
         background.gameObject.SetActive(true);
         dot.gameObject.SetActive(true);
+        button.gameObject.SetActive(true);
 
         // Animation loop
         while (timer < polaroidEnterTime)
@@ -66,8 +69,9 @@ public class Polaroid : MonoBehaviour
             polaroid.transform.eulerAngles = new Vector3(0f, Mathf.LerpUnclamped(rotation.x, rotation.y, t), 0f);
             polaroid.transform.position = new Vector3(0f, Mathf.LerpUnclamped(y.x, y.y, t), 0f);
             polaroid.transform.localScale = Vector3.one * Mathf.LerpUnclamped(scale.x, scale.y, t);
-            background.color = new Color(background.color.r, background.color.g, background.color.b, t * darkening.y);
-            dot.color = new Color(dot.color.r, dot.color.g, dot.color.b, t * lighting.y);
+            background.color = new Color(background.color.r, background.color.g, background.color.b, Mathf.Lerp(darkening.x, darkening.y, t));
+            dot.color = new Color(dot.color.r, dot.color.g, dot.color.b, Mathf.Lerp(lighting.x, lighting.y, t));
+            button.transform.localScale = Vector3.one * Mathf.LerpUnclamped(buttonSize.x, buttonSize.y, t);
 
             yield return null;
         }
@@ -78,6 +82,7 @@ public class Polaroid : MonoBehaviour
         polaroid.transform.localScale = Vector3.one * scale.y;
         background.color = new Color(background.color.r, background.color.g, background.color.b, darkening.y);
         dot.color = new Color(dot.color.r, dot.color.g, dot.color.b, lighting.y);
+        button.transform.localScale = Vector3.one * buttonSize.y;
 
         // Disable objects on exit
         if (!enter)
@@ -85,6 +90,7 @@ public class Polaroid : MonoBehaviour
             polaroid.gameObject.SetActive(false);
             background.gameObject.SetActive(false);
             dot.gameObject.SetActive(false);
+            button.gameObject.SetActive(false);
         }
         
         // Trigger event
@@ -94,6 +100,6 @@ public class Polaroid : MonoBehaviour
     
     private Vector2 InvertV2(Vector2 v)
     {
-        return new Vector2(v.x, v.y);
+        return new Vector2(v.y, v.x);
     }
 }
