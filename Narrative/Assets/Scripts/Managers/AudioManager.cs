@@ -16,6 +16,16 @@ public class AudioManager : MonoBehaviour
     // Public variables
     [NonSerialized] public  Dictionary<AudioClip, List<AudioObject>> audioObjects = new Dictionary<AudioClip, List<AudioObject>>();
     
+    // Public classes
+    [Serializable]
+    public class AudioSettings
+    {
+        public AudioClip clip;
+        public float volume = 1, pitch = 1f;
+        public float randomVolume, randomPitch, startFade, endFade, endLoop, pan;
+        public bool loop;
+    }
+    
     // Editor references
     [SerializeField] private GameObject audioObject;
     
@@ -24,7 +34,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="endFade">The duration of a linear fade out</param>
     /// <param name="endLoop">The duration of the last part of the sound that will be looped indefinitely</param>
     /// </summary>
-    public AudioObject PlayAudio(AudioClip clip, float volume = 1f, float pitch = 0f, float startFade = 0f, float endFade = 0f, float endLoop = 0f, float pan = 0f, bool loop = false)
+    public AudioObject PlayAudio(AudioClip clip, float volume = 1f, float pitch = 1f, float startFade = 0f, float endFade = 0f, float endLoop = 0f, float pan = 0f, bool loop = false)
     {
         // Instantiate
         GameObject instance = Instantiate(audioObject, transform);
@@ -55,16 +65,28 @@ public class AudioManager : MonoBehaviour
     {
         return PlayAudio(clips[Random.Range(0, clips.Length)], volume, pitch, startFade, endFade, endLoop, pan, loop);
     }
+    
+    public AudioObject PlayAudioSettings(AudioSettings a)
+    {
+        return PlayAudio(a.clip, a.volume + Random.Range(-a.randomVolume, a.randomVolume), a.pitch + Random.Range(-a.randomPitch, a.randomPitch), a.startFade, a.endFade, a.endLoop, a.pan, a.loop);
+    }
+
+    public AudioObject PlayRandomAudioSettings(AudioSettings[] a)
+    {
+        return PlayAudioSettings(a[Random.Range(0, a.Length)]);
+    }
 
     public AudioObject GetFirstAudio(AudioClip clip)
     {
         if (!audioObjects.ContainsKey(clip)) return null;
+        if (audioObjects[clip].Count == 0) return null;
         return audioObjects[clip][0];
     }
     
     public List<AudioObject> GetAllAudio(AudioClip clip)
     {
         if (!audioObjects.ContainsKey(clip)) return null;
+        if (audioObjects[clip].Count == 0) return null;
         return audioObjects[clip];
     }
     

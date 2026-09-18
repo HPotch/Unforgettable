@@ -1,21 +1,26 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DialogueComponent = DialogueManager.DialogueComponent;
+using AudioSettings = AudioManager.AudioSettings;
 
 public class IntroScene : MonoBehaviour
 {
+    private static readonly int OpenEye = Animator.StringToHash("OpenEye");
+
     [Header("References")]
     [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
-    [SerializeField] private List<DialogueComponent> dialogues = new List<DialogueComponent>();
-    [SerializeField] private Sprite[] eyeSprites;
-    [SerializeField] private SpriteRenderer[] eyeRenderers;
+    [SerializeField] public List<DialogueComponent> dialogues = new List<DialogueComponent>();
+    [SerializeField] private Animator bottomLid;
+    [SerializeField] private Animator topLid;
+    [SerializeField] private Transform text;
+    [SerializeField] private AudioSettings rain;
+    
     [Header("Settings")]
     [SerializeField] private float endFadeTime = 0.2f;
     [SerializeField] private float loopTime = 2f;
-    [SerializeField] private float eyeTime = 2.5f;
     
+     
     // Private variables
     private int _audioIndex = 0;
     private int _dialogueIndex = 0;
@@ -30,55 +35,44 @@ public class IntroScene : MonoBehaviour
         PlayClip(audioClips[_audioIndex]);
     }
 
+    public void NextDialogue()
+    {
+        DialogueManager.Instance.ChangeDialogue(dialogues[_dialogueIndex]);
+        _dialogueIndex++;
+        if (_dialogueIndex >= dialogues.Count) _dialogueIndex = 0;
+    }
+
     public void OpenEyes()
     {
-        StartCoroutine(OpenEyeRoutine());
+        bottomLid.SetTrigger(OpenEye);
+        topLid.SetTrigger(OpenEye);
     }
 
-    private IEnumerator OpenEyeRoutine()
+    public void MoveText()
     {
-        float time = 0f;
-
-        while (time < eyeTime)
-        {
-            time += Time.deltaTime;
-
-            int i = (int)Mathf.Floor((time / eyeTime) * eyeSprites.Length - 1);
-            i = Mathf.Clamp(i, 0, eyeSprites.Length);
-            foreach (SpriteRenderer eyeRenderer in eyeRenderers)
-                eyeRenderer.sprite = eyeSprites[i];
-            
-            yield return null;
-        }
+        text.position = new Vector2(0f, -4.35f);
     }
 
-    private void Awake()
-    {
-        foreach (SpriteRenderer eyeRenderer in eyeRenderers)
-            eyeRenderer.sprite = eyeSprites[0];
-    }
-    
     private void Start()
     {
         PlayClip(audioClips[_audioIndex]);
         DialogueManager.Instance.ChangeDialogue(dialogues[_dialogueIndex]);
+        AudioManager.Instance.PlayAudioSettings(rain);
         _dialogueIndex++;
     }
 
     private void Update()
     {
         DialogueManager dm = DialogueManager.Instance;
-        
-        bool timeSkip = dm.Completed && dm.TargetDC?.autoSkipTime > 0f && dm.TimeSinceText > dm.TargetDC?.autoSkipTime;
 
-        if (dm.Exiting || (!Keyboard.current.spaceKey.wasPressedThisFrame && !timeSkip)) return;
+        if (dm.TargetDC.skipState == DialogueManager.SkipState.NoSkip) return;
+        if (dm.Exiting) return;
+        bool timeSkip = dm.Completed && dm.TargetDC?.autoSkipTime > 0f && dm.TimeSinceText > dm.TargetDC?.autoSkipTime;
+        bool keyboardSkip = Keyboard.current.spaceKey.wasPressedThisFrame && dm.TargetDC.skipState == DialogueManager.SkipState.Skippable;
+        if (!(keyboardSkip || timeSkip)) return;
 
         if (dm.Completed)
-        {
-            dm.ChangeDialogue(dialogues[_dialogueIndex]);
-            _dialogueIndex++;
-            if (_dialogueIndex >= dialogues.Count) _dialogueIndex = 0;
-        }
+            NextDialogue();
         else
             dm.Complete();
     }

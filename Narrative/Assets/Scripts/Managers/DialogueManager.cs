@@ -24,6 +24,14 @@ public class DialogueManager : MonoBehaviour
     private TextObject _textObject;
     private Material _textMaterial;
     
+    // Enums
+    public enum SkipState
+    {
+        Skippable,
+        OnlyTimeSkip,
+        NoSkip
+    }
+    
     // Custom classes
     [Serializable]
     public class DialogueComponent
@@ -32,6 +40,7 @@ public class DialogueManager : MonoBehaviour
         public Color color = Color.white;
         public float fontSize = 6f;
         public float autoSkipTime = 0f;
+        public SkipState skipState = SkipState.Skippable;
         public UnityEvent OnStart;
         public UnityEvent OnEnd;
     }
