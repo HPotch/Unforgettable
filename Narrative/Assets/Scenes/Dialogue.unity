@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slider (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2040259870917273774, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040259870917273774, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c37824cf2bbdfb7e48574f5604baff24, type: 3}
     - target: {fileID: 2195449084490155604, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -145,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2195449084490155604, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.62162167
+      value: 0.33999968
       objectReference: {fileID: 0}
     - target: {fileID: 2195449084490155604, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2588112
+      value: 1.714865
       objectReference: {fileID: 0}
     - target: {fileID: 2195449084490155604, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -465,7 +473,7 @@ Transform:
   m_GameObject: {fileID: 145257315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.38, y: -3.13, z: 0}
+  m_LocalPosition: {x: 2.2, y: -2.85, z: 0}
   m_LocalScale: {x: 0.37, y: 0.37, z: 0.37}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -657,8 +665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Parallex
   depth: 40
   smooth: 20
-  rotateAmount: 0
-  smoothMode: 0
+  rotateAmount: 1
+  smoothMode: 2
 --- !u!114 &242686124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,8 +1238,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 530cfa12ffc8c9b4e8a8aefb2747d013, type: 3}
   dialogues:
   - text: Ukko?
-    color: {r: 0.72156864, g: 0.8, b: 0.6431373, a: 1}
-    fontSize: 3
+    color: {r: 0.72156864, g: 0.8, b: 0.6431373, a: 0.16470589}
+    fontSize: 2
     autoSkipTime: 0
     skipState: 0
     OnStart:
@@ -1253,7 +1261,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - text: Ukko, wake up! I made you some coffee.
-    color: {r: 0.72156864, g: 0.8, b: 0.6431373, a: 1}
+    color: {r: 0.72156864, g: 0.8, b: 0.6431373, a: 0.5058824}
     fontSize: 4
     autoSkipTime: 0
     skipState: 0
@@ -1300,8 +1308,8 @@ MonoBehaviour:
   - text: '*Yawn* Yeah, coming! '
     color: {r: 0.42745098, g: 0.21176471, b: 0.14901961, a: 1}
     fontSize: 5
-    autoSkipTime: 2
-    skipState: 1
+    autoSkipTime: 0
+    skipState: 0
     OnStart:
       m_PersistentCalls:
         m_Calls: []
@@ -1708,6 +1716,17 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+  - text: End of the playtest, thank you for participating!
+    color: {r: 0.3788314, g: 0.8478416, b: 1, a: 1}
+    fontSize: 6
+    autoSkipTime: 0
+    skipState: 2
+    OnStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
   bottomLid: {fileID: 364004214}
   topLid: {fileID: 2123694767}
   text: {fileID: 1642582262}
@@ -2061,7 +2080,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -4.41}
-  m_SizeDelta: {x: 15.9316, y: 5}
+  m_SizeDelta: {x: 5.4, y: 1.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1275700213
 MonoBehaviour:
@@ -2409,6 +2428,24 @@ MonoBehaviour:
     overrideTagEffects: 0
   - triggerWhen: 1
     effect: {fileID: 11400000, guid: 02967fa024c0a26d796db2d61f56acf1, type: 2}
+    onEffectCompleted:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1642582268}
+          m_TargetAssemblyTypeName: TextObject, Assembly-CSharp
+          m_MethodName: Exited
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    overrideTagEffects: 0
+  - triggerWhen: 1
+    effect: {fileID: 11400000, guid: aab93e6f63435e389a3dbc1dbd282d4f, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
         m_Calls:
@@ -2907,6 +2944,7 @@ GameObject:
   - component: {fileID: 1926002852}
   - component: {fileID: 1926002854}
   - component: {fileID: 1926002853}
+  - component: {fileID: 1926002855}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -3005,6 +3043,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1926002855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926002851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35195bc6d9e6637ea866150e8c73e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Parallex
+  depth: 70
+  smooth: 20
+  rotateAmount: 1
+  smoothMode: 2
 --- !u!1 &1946489566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,7 +3465,7 @@ PrefabInstance:
     - target: {fileID: 2040259870917273774, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9da02ceba8c584487be779a2149e5a8b, type: 3}
+      objectReference: {fileID: 21300000, guid: c37824cf2bbdfb7e48574f5604baff24, type: 3}
     - target: {fileID: 2040259870917273774, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -3426,11 +3480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2195449084490155604, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.62162167
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 2195449084490155604, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2339463
+      value: 3.69
       objectReference: {fileID: 0}
     - target: {fileID: 2195449084490155604, guid: 2f05777fc9215d3ce8cc6c99d6bba03e, type: 3}
       propertyPath: m_LocalPosition.z

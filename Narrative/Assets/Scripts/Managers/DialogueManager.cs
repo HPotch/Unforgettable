@@ -91,6 +91,7 @@ public class DialogueManager : MonoBehaviour
         }
         _textEffect.StartManualEffect("ColorOut");
         _textEffect.StartManualEffect("ScaleOut");
+        _textEffect.StartManualEffect("MoveOut");
         Exiting = true;
     }
 
