@@ -19,6 +19,8 @@ public class Polaroid : MonoBehaviour
 
     public UnityEvent onEntered;
     public UnityEvent onExited;
+
+    private bool _entered = false, _animating = false;
     
     private void Awake()
     {
@@ -29,16 +31,20 @@ public class Polaroid : MonoBehaviour
     
     public void ShowPolaroid()
     {
+        if (_entered || _animating) return;
         StartCoroutine(AnimateRoutine());
     }
 
     public void HidePolaroid()
     {
+        if (!_entered || _animating) return;
         StartCoroutine(AnimateRoutine(false));
     }
 
     private IEnumerator AnimateRoutine(bool enter = true)
     {
+        _animating = true;
+        
         float timer = 0f;
         // All values that I change are floats, therefore, I can make Vector2s where x = start and y = end. This way, I can easily flip the values when exiting.
         Vector2 scale = new Vector2(polaroidScaleStart, polaroid.localScale.x);
@@ -59,11 +65,9 @@ public class Polaroid : MonoBehaviour
         background.gameObject.SetActive(true);
         dot.gameObject.SetActive(true);
         button.gameObject.SetActive(true);
-
         // Animation loop
         while (timer < polaroidEnterTime)
         {
-            timer += Time.deltaTime;
             float t = polaroidEnterCurve.Evaluate(Mathf.Clamp01(timer / polaroidEnterTime));
 
             polaroid.transform.eulerAngles = new Vector3(0f, Mathf.LerpUnclamped(rotation.x, rotation.y, t), 0f);
@@ -72,7 +76,8 @@ public class Polaroid : MonoBehaviour
             background.color = new Color(background.color.r, background.color.g, background.color.b, Mathf.Lerp(darkening.x, darkening.y, t));
             dot.color = new Color(dot.color.r, dot.color.g, dot.color.b, Mathf.Lerp(lighting.x, lighting.y, t));
             button.transform.localScale = Vector3.one * Mathf.LerpUnclamped(buttonSize.x, buttonSize.y, t);
-
+           
+            timer += Time.deltaTime;
             yield return null;
         }
 
@@ -96,6 +101,9 @@ public class Polaroid : MonoBehaviour
         // Trigger event
         if (enter) onEntered.Invoke();
         else onExited.Invoke();
+
+        _animating = false;
+        _entered = enter;
     }
     
     private Vector2 InvertV2(Vector2 v)
