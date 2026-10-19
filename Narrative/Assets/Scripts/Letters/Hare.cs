@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,6 +12,11 @@ public class Hare : MonoBehaviour
     private void Awake()
     {
         _sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        NextThink();
     }
 
     public void NextThink()

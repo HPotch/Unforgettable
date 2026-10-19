@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class SortingLettersManager : MonoBehaviour
@@ -13,7 +14,8 @@ public class SortingLettersManager : MonoBehaviour
 
     public int correctLetters = 0;
     public int wrongLetters = 0;
-
+    
+    public UnityEvent afterMove;
     [SerializeField] private GameObject controls;
     [SerializeField] private Transform letterSpawner;
     [SerializeField] private Transform stack1, stack2;
@@ -27,16 +29,17 @@ public class SortingLettersManager : MonoBehaviour
     private void Update()
     {
         if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
-            MoveChild(1);
+            MoveChild(0);
         else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
-            MoveChild(2);
+            MoveChild(1);
         else return;
         Destroy(controls); // User has inputted, we can remove the help
     }
     
     private void MoveChild(int targetNum)
     {
-        Transform target = targetNum == 1 ? stack1 : stack2;
+        print(targetNum);
+        Transform target = targetNum == 0 ? stack1 : stack2;
         Transform child = letterSpawner.GetChild(0);
         Letter letter = child.GetComponent<Letter>();
         child.SetParent(target);

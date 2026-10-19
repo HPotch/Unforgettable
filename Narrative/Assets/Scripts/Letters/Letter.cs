@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class Letter : MonoBehaviour
@@ -31,7 +32,6 @@ public class Letter : MonoBehaviour
         Vector2 startPos = transform.position;
         float startRotation =  transform.eulerAngles.z;
         float invert = (Random.Range(0, 2) * 2f) - 1f;
-        print(invert);
         float targetRotation = startRotation + Random.Range(rotationDegrees.x, rotationDegrees.y) * invert;
         
         
@@ -50,5 +50,6 @@ public class Letter : MonoBehaviour
         // Exit cleanly
         transform.position = target ?? Vector2.zero;
         transform.eulerAngles = new Vector3(0, 0, targetRotation);
+        SortingLettersManager.Instance.afterMove.Invoke();
     }
 }

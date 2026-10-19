@@ -166,12 +166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation
   sprites:
-  - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
   - {fileID: 21300000, guid: 9563e0d8d6f8989c0a22d91c7d0c7e64, type: 3}
-  switchTime: 1.2
-  _index: 0
-  _timer: 0
-  _spriteRenderer: {fileID: 0}
+  - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
+  - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
+  - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
+  switchTime: 0.25
 --- !u!212 &24070055
 SpriteRenderer:
   serializedVersion: 3
@@ -253,17 +252,9 @@ MonoBehaviour:
   fadedIn:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   fadedOut:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
-  _sr: {fileID: 0}
-  _startColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
 --- !u!1 &52582147
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,12 +302,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation
   sprites:
+  - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
+  - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
   - {fileID: 21300000, guid: 9563e0d8d6f8989c0a22d91c7d0c7e64, type: 3}
   - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
-  switchTime: 1.2
-  _index: 0
-  _timer: 0
-  _spriteRenderer: {fileID: 0}
+  switchTime: 0.25
 --- !u!212 &52582150
 SpriteRenderer:
   serializedVersion: 3
@@ -398,17 +388,9 @@ MonoBehaviour:
   fadedIn:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
   fadedOut:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
-  _sr: {fileID: 0}
-  _startColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
 --- !u!1 &84454509
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,19 +613,21 @@ MonoBehaviour:
   fadedIn:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 672127935}, m_TargetAssemblyTypeName: Fade, Assembly-CSharp, m_MethodName: FadeOut, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+      - m_Target: {fileID: 672127935}
+        m_TargetAssemblyTypeName: Fade
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   fadedOut:
     m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 672127935}, m_TargetAssemblyTypeName: Fade, Assembly-CSharp, m_MethodName: FadeIn, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  _sr: {fileID: 0}
-  _startColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+      m_Calls: []
 --- !u!212 &672127936
 SpriteRenderer:
   serializedVersion: 3
@@ -842,11 +826,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5063f4d4fca8c39f58f0f181314a2b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hare
-  think: {fileID: 0}
-  left: {fileID: 0}
-  right: {fileID: 0}
-  thinkTime: 0
-  _sr: {fileID: 0}
+  think: {fileID: 21300000, guid: 23a3be4364ca07e0d8657608ec9d1fc8, type: 3}
+  left: {fileID: 21300000, guid: 4d4bdc6176fb3161795f64eba9eec55b, type: 3}
+  right: {fileID: 21300000, guid: 1f78c4ec8d1ff2547aa584cca05523e9, type: 3}
+  thinkTime: 2
 --- !u!1 &1260193496
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,19 +944,21 @@ MonoBehaviour:
   fadedIn:
     m_PersistentCalls:
       m_Calls:
-      - {m_Target: {fileID: 1260193499}, m_TargetAssemblyTypeName: Fade, Assembly-CSharp, m_MethodName: FadeOut, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+      - m_Target: {fileID: 1260193499}
+        m_TargetAssemblyTypeName: Fade
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   fadedOut:
     m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 1260193499}, m_TargetAssemblyTypeName: Fade, Assembly-CSharp, m_MethodName: FadeIn, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
-  _sr: {fileID: 0}
-  _startColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+      m_Calls: []
 --- !u!1 &1509070862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1069,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SortingLettersManager
   correctLetters: 0
   wrongLetters: 0
+  afterMove:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 817113723}
+        m_TargetAssemblyTypeName: Hare, Assembly-CSharp
+        m_MethodName: NextThink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   controls: {fileID: 746974282}
   letterSpawner: {fileID: 2093098371}
   stack1: {fileID: 1581252335}
