@@ -5,15 +5,17 @@ using Random = UnityEngine.Random;
 public class Letter : MonoBehaviour
 {
     [SerializeField] private float animationTime = 0.7f;
-    [SerializeField] private AnimationCurve positionCurve;
-    [SerializeField] private AnimationCurve rotationCurve;
+    [SerializeField] private AnimationCurve positionCurve, rotationCurve, scaleCurve;
     [SerializeField] private Vector2 rotationDegrees = new Vector2(600, 900);
 
     public int correctStack;
+    
+    private float _startScale = 1f;
 
     private void Awake()
     {
         correctStack = Random.Range(0, 2);
+        _startScale = transform.localScale.x;
     }
 
     public void MoveToTarget(Vector2? target = null)
@@ -39,6 +41,8 @@ public class Letter : MonoBehaviour
             transform.position = Vector2.Lerp(startPos, target ?? Vector2.zero, t);
             t =  rotationCurve.Evaluate(timer / animationTime);
             transform.eulerAngles = new Vector3(0, 0, Mathf.Lerp(startRotation, targetRotation, t));
+            t = scaleCurve.Evaluate(timer / animationTime);
+            transform.localScale = Vector3.one * (_startScale * t);
             timer += Time.deltaTime;
             yield return null;
         }

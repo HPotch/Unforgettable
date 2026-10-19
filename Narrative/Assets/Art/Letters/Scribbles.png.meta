@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 795154eebe6e676059dfa964a3da2fbb
+guid: 8c856a1e62acf3a62982450dff4a962d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8886713217412807493
-    second: Heart1_0
-  - first:
-      213: 2940779427510907671
-    second: Heart1_1
+      213: -6601043738653769581
+    second: Scribbles_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,7 +99,33 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -118,13 +141,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heart1_0
+      name: Scribbles_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 29
-        width: 828
-        height: 806
+        x: 12
+        y: 9
+        width: 234
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,30 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb4475f996d0ca480800000000000000
-      internalID: -8886713217412807493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart1_1
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 29
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7137093fe4fbfc820800000000000000
-      internalID: 2940779427510907671
+      spriteID: 390c9ba81b16464a0800000000000000
+      internalID: -6601043738653769581
       vertices: []
       indices: 
       edges: []
@@ -175,8 +176,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heart1_0: -8886713217412807493
-      Heart1_1: 2940779427510907671
+      Scribbles_0: -6601043738653769581
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
