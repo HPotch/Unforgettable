@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DialogueComponent = DialogueManager.DialogueComponent;
@@ -12,12 +13,9 @@ public class IntroScene : MonoBehaviour
     [Header("References")]
     [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
     [SerializeField] public List<DialogueComponent> dialogues = new List<DialogueComponent>();
-    [SerializeField] private Animator bottomLid;
-    [SerializeField] private Animator topLid;
+    [SerializeField] private Animator bottomLid, topLid;
     [SerializeField] private Transform text;
-    [SerializeField] private AudioSettings rain;
-    [SerializeField] private AudioSettings writing;
-    [SerializeField] private AudioSettings coffee;
+    [SerializeField] private AudioSettings rain, writing, coffee;
     [SerializeField] private SpriteRenderer heart;
     
     [Header("Settings")]
@@ -40,9 +38,13 @@ public class IntroScene : MonoBehaviour
 
     public void NextDialogue()
     {
+        if (_dialogueIndex >= dialogues.Count)
+        {
+            Transition.Instance.StartDefaultTransition();
+            return;
+        }
         DialogueManager.Instance.ChangeDialogue(dialogues[_dialogueIndex]);
         _dialogueIndex++;
-        if (_dialogueIndex >= dialogues.Count) _dialogueIndex = 0;
     }
 
     public void OpenEyes()

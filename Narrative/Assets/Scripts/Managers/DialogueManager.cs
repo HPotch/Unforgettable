@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     [Serializable]
     public class DialogueComponent
     {
-        public String text;
+        public string text;
         public Color color = Color.white;
         public float fontSize = 6f;
         public float autoSkipTime = 0f;
