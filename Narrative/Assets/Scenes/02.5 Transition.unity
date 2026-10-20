@@ -204,7 +204,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I better get some breakfast.
+  m_text: 'Hella: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: edfdb91aaf4e4cd06946a3a5c5204e49, type: 2}
   m_sharedMaterial: {fileID: -5532885669328146789, guid: edfdb91aaf4e4cd06946a3a5c5204e49, type: 2}

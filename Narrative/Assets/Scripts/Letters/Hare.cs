@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +5,8 @@ public class Hare : MonoBehaviour
 {
     [SerializeField] private Sprite think, left, right;
     [SerializeField] private float thinkTime;
+    [SerializeField] private AnimationCurve xScaleCurve, yScaleCurve, spriteCurve;
+    [SerializeField] private float animationTime;
 
     private SpriteRenderer _sr;
     
@@ -36,6 +37,26 @@ public class Hare : MonoBehaviour
         }
 
         int dir = SortingLettersManager.Instance.CurrentDirection();
-        _sr.sprite = dir == 0 ? left : right;
+        StartCoroutine(AnimationRoutine(dir == 0 ? left : right));
+    }
+
+    private IEnumerator AnimationRoutine(Sprite after)
+    {
+        print("change");
+        float timer = 0f;
+        Sprite before = _sr.sprite;
+
+        while (timer < animationTime)
+        {
+            timer += Time.deltaTime;
+            float ty = xScaleCurve.Evaluate(timer / animationTime);
+            float tx = yScaleCurve.Evaluate(timer / animationTime);
+            float ts = spriteCurve.Evaluate(timer / animationTime);
+
+            transform.localScale = new Vector3(tx, ty, 1f);
+            _sr.sprite = ts > 0.5f ? after : before;
+            
+            yield return null;
+        }
     }
 }
