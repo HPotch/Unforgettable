@@ -6,14 +6,17 @@ public class DialogueHelper : MonoBehaviour
 {
     [SerializeField] private bool resetAlpha;
     [SerializeField] private Color setColor;
+    [SerializeField] private float setFontSizes;
     
     private DialogueCaller _dialogueCaller;
 
     private Color _prevColor;
+    private float _prevFontSize;
     
     private void Awake()
     {
         _prevColor = setColor;
+        _prevFontSize = setFontSizes;
         _dialogueCaller = GetComponent<DialogueCaller>();
     }
 
@@ -21,6 +24,7 @@ public class DialogueHelper : MonoBehaviour
     {
         ResetAlpha();
         SetColor();
+        SetFontSizes();
     }
 
     private void ResetAlpha()
@@ -36,5 +40,13 @@ public class DialogueHelper : MonoBehaviour
         foreach (DialogueComponent dc in _dialogueCaller.dialogues)
             dc.color = setColor;
         _prevColor = setColor;
+    }
+
+    private void SetFontSizes()
+    {
+        if (setFontSizes == _prevFontSize) return;
+        foreach (DialogueComponent dc in _dialogueCaller.dialogues)
+            dc.fontSize = setFontSizes;
+        _prevFontSize = setFontSizes;
     }
 }

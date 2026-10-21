@@ -19,7 +19,8 @@ public class IntroScene : MonoBehaviour
 
     public void MoveText()
     {
-        text.position = new Vector2(0f, -4.35f);
+        DialogueManager.Instance.textObject = text;
+        DialogueManager.Instance.SetTextVariables();
     }
 
     public void ShowHeart()

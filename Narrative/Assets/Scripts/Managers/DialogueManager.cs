@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance;
 
     [Header("References")]
-    [SerializeField] private Transform textObject;
+    public Transform textObject;
     
     // Public variables
     [NonSerialized] public bool Completed = true;
@@ -56,7 +56,19 @@ public class DialogueManager : MonoBehaviour
         if (!Instance) Instance = this;
         else Destroy(gameObject);
         
-        // Reference setup
+        SetTextVariables();
+    }
+
+    public void SetTextVariables()
+    {
+        // Remove previous listeners
+        if (_textObject)
+        {
+            _textObject.OnEntered.RemoveListener(Complete);
+            _textObject.OnExited.RemoveListener(NextDialogue);
+        }
+        
+        // Make variables
         _textMesh = textObject.GetComponent<TextMeshPro>();
         _textEffect = textObject.GetComponent<TextEffect>();
         _textObject = textObject.GetComponent<TextObject>();
