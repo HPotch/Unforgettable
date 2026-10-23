@@ -28,6 +28,9 @@ public class Parallex : MonoBehaviour
 
     private void Update()
     {
+        Vector2 camPos = (ParallexManager.Instance?.position ?? Vector2.zero) / depth;
+        Vector2 basePos = StartPos + camPos;
+        
         // Smooth input when using velocity
         if (smoothMode == Smoothmode.Velocity)
         {
@@ -38,7 +41,7 @@ public class Parallex : MonoBehaviour
             smoothedMousePos = RayManager.Instance.mouseWorldPos;
         
         // Set targets
-        Vector2 posTarget = StartPos + smoothedMousePos / depth;
+        Vector2 posTarget = basePos + smoothedMousePos / depth;
         Vector2 rotTarget = new Vector2(smoothedMousePos.y - transform.position.y, smoothedMousePos.x - transform.position.x) * rotateAmount;
 
         // Apply transforms

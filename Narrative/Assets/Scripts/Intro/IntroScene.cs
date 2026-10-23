@@ -3,22 +3,14 @@ using AudioSettings = AudioManager.AudioSettings;
 
 public class IntroScene : MonoBehaviour
 {
-    private static readonly int OpenEye = Animator.StringToHash("OpenEye");
-
     [Header("References")]
-    [SerializeField] private Animator bottomLid, topLid;
     [SerializeField] private Transform text;
     [SerializeField] private AudioSettings rain, coffee;
     [SerializeField] private SpriteRenderer heart;
 
-    public void OpenEyes()
-    {
-        bottomLid.SetTrigger(OpenEye);
-        topLid.SetTrigger(OpenEye);
-    }
-
     public void MoveText()
     {
+        Destroy(DialogueManager.Instance.textObject.gameObject);
         DialogueManager.Instance.textObject = text;
         DialogueManager.Instance.SetTextVariables();
     }

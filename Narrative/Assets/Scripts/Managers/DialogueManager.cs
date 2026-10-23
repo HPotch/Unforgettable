@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
     public UnityEvent onTextEnter;
     
     // Private references
-    private TextMeshPro _textMesh;
+    private TextMeshProUGUI _textMesh;
     private TextEffect _textEffect;
     private TextObject _textObject;
     private Material _textMaterial;
@@ -69,7 +69,7 @@ public class DialogueManager : MonoBehaviour
         }
         
         // Make variables
-        _textMesh = textObject.GetComponent<TextMeshPro>();
+        _textMesh = textObject.GetComponent<TextMeshProUGUI>();
         _textEffect = textObject.GetComponent<TextEffect>();
         _textObject = textObject.GetComponent<TextObject>();
         _textMaterial = _textMesh.fontMaterial;

@@ -5,13 +5,13 @@ public class Guide : MonoBehaviour
 {
     [SerializeField] private float showTime = 15f;
     
-    private TextMeshPro _text;
+    private TextMeshProUGUI _text;
     private float _timer;
     private bool _counting = false;
 
     private void Awake()
     {
-        _text = GetComponent<TextMeshPro>();
+        _text = GetComponent<TextMeshProUGUI>();
         DialogueManager.Instance.onTextExit.AddListener(Quit);
         _text.color = new Color(1, 1, 1, 0);
     }

@@ -20,7 +20,7 @@ public class BlurMiniGame : MonoBehaviour
     [SerializeField] private Slider slider2;
     [SerializeField] private Blur front;
     [SerializeField] private Blur back;
-    [SerializeField] private Parallex sliderParent;
+    [SerializeField] private RectTransform sliderParent;
     
     // Private variables
     private float blurAmount;
@@ -49,10 +49,9 @@ public class BlurMiniGame : MonoBehaviour
         while (forward ? timer < sliderEnterTime : timer > 0f)
         {
             timer += Time.deltaTime * (forward ? 1f : -1f);
-
             float t = sliderEnterCurve.Evaluate(Mathf.Clamp01(timer / sliderEnterTime));
-            sliderParent.transform.position = new Vector2(sliderParent.transform.position.x, Mathf.LerpUnclamped(_showYPos - sliderDuckOnHide, _showYPos, t));
-            sliderParent.StartPos.y = sliderParent.transform.position.y;
+            sliderParent.anchoredPosition = new Vector2(sliderParent.anchoredPosition.x, Mathf.Lerp(_showYPos - sliderDuckOnHide, _showYPos, t));
+            
             yield return null;
         }
     }
@@ -71,7 +70,7 @@ public class BlurMiniGame : MonoBehaviour
         slider2.SetValue(Mathf.Repeat(blurTargets.y + 0.5f, 1f));
         UpdateValue();
 
-        _showYPos = sliderParent.transform.position.y;
+        _showYPos = sliderParent.anchoredPosition.y;
         StopMiniGame();
     }
 

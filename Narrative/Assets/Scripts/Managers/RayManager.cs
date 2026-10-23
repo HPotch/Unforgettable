@@ -30,8 +30,9 @@ public class RayManager : MonoBehaviour
         // Get mouseOver
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Ray gameRay = cam.ScreenPointToRay(mouseScreenPos);
-        RaycastHit2D gameRayHit = Physics2D.GetRayIntersection(gameRay);
-        mouseOver = gameRayHit.collider;
+        RaycastHit2D gameHit = Physics2D.GetRayIntersection(gameRay);
+        mouseOver = gameHit.collider;
+        
         mouseWorldPos = cam.ScreenToWorldPoint(mouseScreenPos);
     }
 }

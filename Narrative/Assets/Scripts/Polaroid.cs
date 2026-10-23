@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Polaroid : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform polaroid;
-    [SerializeField] private SpriteRenderer background, dot, button;
-    
+    [SerializeField] private Image background, dot, button;
+
     [Header("Settings")]
     [SerializeField] private AnimationCurve polaroidEnterCurve;
     [SerializeField] private float polaroidEnterTime = 3f;
