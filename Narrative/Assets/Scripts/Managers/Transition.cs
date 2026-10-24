@@ -20,6 +20,7 @@ public class Transition : MonoBehaviour
     [SerializeField] private float targetScale = 35f;
     [SerializeField] private bool transitionIn = true;
     [SerializeField] private SceneAsset defaultScene;
+    private RayManager ray;
     
     // Private variables
     private string _targetScene;

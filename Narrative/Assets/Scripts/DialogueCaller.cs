@@ -38,8 +38,20 @@ public class DialogueCaller : MonoBehaviour
             Transition.Instance.StartDefaultTransition();
             return;
         }
+        if (dialogues[_dialogueIndex].customNext != -1) _dialogueIndex = dialogues[_dialogueIndex].customNext;
         DialogueManager.Instance.ChangeDialogue(dialogues[_dialogueIndex]);
         _dialogueIndex++;
+    }
+
+    public void SetDialogue(int index)
+    {
+        if (index >= dialogues.Count)
+        {
+            Debug.LogError($"Dialogue Index: {index} out of range");
+            return;
+        }
+        DialogueManager.Instance.ChangeDialogue(dialogues[index]);
+        _dialogueIndex = index;
     }
 
     private void Start()

@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
     public Transform textObject;
     
     // Public variables
-    [NonSerialized] public bool Completed = true;
+     public bool Completed = true;
     [NonSerialized] public bool Exiting = false;
     [NonSerialized] public float TimeSinceText = 0f;
     [NonSerialized] public DialogueComponent TargetDC;
@@ -43,11 +43,10 @@ public class DialogueManager : MonoBehaviour
     {
         public string text;
         public Color color = Color.white;
-        public float fontSize = 6f;
-        public float autoSkipTime = 0f;
+        public float fontSize = 6f, autoSkipTime;
+        public int customNext = -1; // -1 is not custom next
         public SkipState skipState = SkipState.Skippable;
-        public UnityEvent OnStart;
-        public UnityEvent OnEnd;
+        public UnityEvent OnStart, OnEnd;
     }
     
     private void Awake()
@@ -111,7 +110,7 @@ public class DialogueManager : MonoBehaviour
     {
         _textMesh.text = TargetDC.text;
         _textMesh.fontSize = TargetDC.fontSize;
-        _textMesh.color = new Color(1, 1, 1, 0);
+        _textMesh.color = new Color(1, 1, 1, 1);
         _textMaterial.SetColor("_FaceColor", TargetDC.color);
         _textEffect.Refresh();
         TargetDC.OnStart.Invoke();
@@ -120,6 +119,4 @@ public class DialogueManager : MonoBehaviour
         Completed = false;
         Exiting = false;
     }
-
-    
 }

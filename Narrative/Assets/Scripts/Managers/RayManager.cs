@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,7 @@ public class RayManager : MonoBehaviour
     
     // Settings
     [SerializeField] private Camera cam;
+    [SerializeField] private LayerMask preferMask;
 
     private void Start()
     {
@@ -30,8 +32,15 @@ public class RayManager : MonoBehaviour
         // Get mouseOver
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Ray gameRay = cam.ScreenPointToRay(mouseScreenPos);
-        RaycastHit2D gameHit = Physics2D.GetRayIntersection(gameRay);
-        mouseOver = gameHit.collider;
+        RaycastHit2D preferHit = Physics2D.GetRayIntersection(gameRay, Mathf.Infinity, preferMask);
+        
+        if (preferHit.collider)
+            mouseOver = preferHit.collider;
+        else
+        {
+            RaycastHit2D gameHit = Physics2D.GetRayIntersection(gameRay);
+            mouseOver = gameHit.collider;
+        }
         
         mouseWorldPos = cam.ScreenToWorldPoint(mouseScreenPos);
     }

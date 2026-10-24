@@ -77,6 +77,7 @@ public class Portrait : MonoBehaviour
             Debug.LogError($"Couldn't load to portrait {i} - no entry found, aborting");
             return;
         }
+        
         _image.sprite = portraits.Values.ToList()[i];
         text.text = portraits.Keys.ToList()[i];
         // Animate

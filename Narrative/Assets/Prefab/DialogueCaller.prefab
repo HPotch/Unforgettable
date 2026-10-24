@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7394408202322940645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7980379550457425927}
+  - component: {fileID: 4827791957453068084}
+  - component: {fileID: 1140488951522116381}
+  m_Layer: 0
+  m_Name: DialogueCaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7980379550457425927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394408202322940645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.50697, y: 0.05776, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4827791957453068084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394408202322940645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff8274bd4d41effe9968ce185ffa35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueCaller
+  audioClips: []
+  dialogues:
+  - text: Are you ready? Someone's at the door!
+    color: {r: 1, g: 0.9843137, b: 0.8980392, a: 1}
+    fontSize: 50
+    autoSkipTime: 0
+    skipState: 0
+    OnStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: sdfgsdfg
+    color: {r: 1, g: 0.9843137, b: 0.8980392, a: 1}
+    fontSize: 50
+    autoSkipTime: 0
+    skipState: 0
+    OnStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: hnb cx
+    color: {r: 1, g: 0.9843137, b: 0.8980392, a: 1}
+    fontSize: 50
+    autoSkipTime: 0
+    skipState: 0
+    OnStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  text: {fileID: 0}
+  writing:
+    clips:
+    - {fileID: 8300000, guid: a5317aed09ab6a164a08e6d0462bbb1c, type: 3}
+    - {fileID: 8300000, guid: ac450672c88164370a9d05a0cd264661, type: 3}
+    - {fileID: 8300000, guid: ed2a7833a5e56407ba2115cff3df619c, type: 3}
+    - {fileID: 8300000, guid: 1972987c4b50f758ab99dc1f9bd7c4f8, type: 3}
+    - {fileID: 8300000, guid: e6677710151885c79a7c5c1ed1fc88d0, type: 3}
+    - {fileID: 8300000, guid: 4cc06f7b2614c1f07a33f20c81cf49b8, type: 3}
+    - {fileID: 8300000, guid: 281530c813609f162a7b6f8d814eea4f, type: 3}
+    - {fileID: 8300000, guid: e4437b267ae76dbc89f84f6aab139f52, type: 3}
+    - {fileID: 8300000, guid: f04673ef82e1c6682bfc0e4853a48786, type: 3}
+    volume: 0.2
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    startFade: 0.1
+    endFade: 0.2
+    endLoop: 0
+    pan: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+  endFadeTime: 0.2
+  loopTime: 2
+  startWaitTime: 0
+  _dialogueIndex: 0
+--- !u!114 &1140488951522116381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394408202322940645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41ac59d016da90128e3b9bbde5e2c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueHelper
+  resetAlpha: 0
+  setColor: {r: 1, g: 0.9843137, b: 0.8980392, a: 1}
+  setFontSizes: 50

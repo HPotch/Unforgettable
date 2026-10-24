@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b06b17e8f9020068b5de8160d8bc8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transition
-  transitionTime: 1
+  transitionTime: 0
   transitionCurve:
     serializedVersion: 2
     m_Curve:
@@ -132,3 +132,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   targetScale: 35
   transitionIn: 1
+  defaultScene: {fileID: 102900000, guid: 179ac7d79541008e19cac7dff4ac673f, type: 3}
