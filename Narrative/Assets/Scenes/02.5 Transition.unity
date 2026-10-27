@@ -218,6 +218,7 @@ RectTransform:
   - {fileID: 314318151}
   - {fileID: 601388191}
   - {fileID: 1123189760}
+  - {fileID: 1407688397}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -538,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864b494a3a5e60fc7bf424479efc7fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fade
-  waitTime: 1
+  waitTime: 2
   fadeTime: 1
   fadeInOnStart: 1
   fadeOutOnStart: 0
@@ -1111,7 +1112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864b494a3a5e60fc7bf424479efc7fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fade
-  waitTime: 1
+  waitTime: 3
   fadeTime: 1
   fadeInOnStart: 1
   fadeOutOnStart: 0
@@ -1559,11 +1560,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 191045976}
     m_Modifications:
     - target: {fileID: 3279842219102556531, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: m_Name
       value: Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806487825060868821, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2015.1647
       objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: targetScale
@@ -1653,6 +1658,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b06b17e8f9020068b5de8160d8bc8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transition
+--- !u!224 &1407688397 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3806487825060868821, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
+  m_PrefabInstance: {fileID: 1407688395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1657386084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1671,7 +1681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4827791957453068084, guid: ae231877d57c29c72b3b7596a252c065, type: 3}
       propertyPath: dialogues.Array.data[1].text
-      value: No silly, you'll like it when she's here.
+      value: No silly! You'll like it when she's here.
       objectReference: {fileID: 0}
     - target: {fileID: 4827791957453068084, guid: ae231877d57c29c72b3b7596a252c065, type: 3}
       propertyPath: dialogues.Array.data[2].text
@@ -1970,6 +1980,5 @@ SceneRoots:
   - {fileID: 400971502}
   - {fileID: 752359114}
   - {fileID: 718266584}
-  - {fileID: 1407688395}
   - {fileID: 434366900}
   - {fileID: 191045976}

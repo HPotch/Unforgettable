@@ -15,7 +15,16 @@ EditorBuildSettings:
     path: Assets/Scenes/02.5 Transition.unity
     guid: cf6afcd62a22005bc9fb06fb913baf45
   - enabled: 1
-    path: Assets/Scenes/03 Breakfast.unity
+    path: Assets/Scenes/99 Breakfast.unity
     guid: 179ac7d79541008e19cac7dff4ac673f
+  - enabled: 1
+    path: Assets/Scenes/03 Daughter.unity
+    guid: 5b57bd6361546f0cb9e5073cc80e67ff
+  - enabled: 1
+    path: Assets/Scenes/03.5 Transition.unity
+    guid: 1cd26917753cbe0269468b85c591bba5
+  - enabled: 1
+    path: Assets/Scenes/04 Sorting Letters.unity
+    guid: f07568ac5439efc6699a021e2dc16294
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
         TargetDC?.OnEnd.Invoke();
         if (TargetDC != null && TargetDC?.text != "") onTextExit.Invoke();
         TargetDC = text;
-        if (_textMesh.text == "")
+        if (_textMesh.text is "" or " ")
         {
             NextDialogue();
             return;

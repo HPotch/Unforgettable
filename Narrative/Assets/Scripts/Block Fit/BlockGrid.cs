@@ -1,13 +1,15 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class Grid : MonoBehaviour
+public class BlockGrid : MonoBehaviour
 {
-    public static Grid Instance;
+    public static BlockGrid Instance;
     
     [SerializeField] private int width = 4;
     [SerializeField] private float spacing = 20f;
     [SerializeField] private GameObject squarePrefab;
+    [SerializeField] private UnityEvent onWin;
 
     public void CheckGrid()
     {
@@ -15,7 +17,8 @@ public class Grid : MonoBehaviour
         {
             if (!child.Filled) return;
         }
-        print("Won!");
+        print("won");
+        onWin.Invoke();
     }
     
     private void Awake()
@@ -41,7 +44,7 @@ public class Grid : MonoBehaviour
             for (int x = 0; x < width; x++)
             {
                 GameObject square = Instantiate(squarePrefab, transform);
-                square.transform.position = new Vector2(spacing * x, spacing * y) - center;
+                square.transform.localPosition = new Vector2(spacing * x, spacing * y) - center;
             }
         }
     }

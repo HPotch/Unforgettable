@@ -1,5 +1,4 @@
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,10 +14,12 @@ public class RayManager : MonoBehaviour
     }
 
     // Public variable
-    [NonSerialized] public Collider2D mouseOver;
-    [NonSerialized] public Vector2 mouseWorldPos;   
+    [Header("Output")]
+    public Collider2D mouseOver;
+    public Vector2 mouseWorldPos;
     
     // Settings
+    [Header("Settings")]
     [SerializeField] private Camera cam;
     [SerializeField] private LayerMask preferMask;
 

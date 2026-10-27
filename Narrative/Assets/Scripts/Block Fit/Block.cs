@@ -25,6 +25,7 @@ public class Block : MonoBehaviour
     private float _previousRotation;
     private Vector2 _startPosition;
     private Vector2 _targetPosition;
+    private Vector2 _returnPosition;
 
     public void SnapToPosition(Vector2 position)
     {
@@ -40,6 +41,7 @@ public class Block : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 90f * startRotation);
         _startPosition = transform.position;
         _previousPosition = _startPosition;
+        _returnPosition = transform.localPosition;
         _previousRotation = transform.eulerAngles.z;
         
         movable.afterMove.AddListener(Move);
@@ -62,9 +64,12 @@ public class Block : MonoBehaviour
 
         if (Keyboard.current.rKey.wasPressedThisFrame)
         {
-            _targetPosition = _startPosition;
+            Vector2 prevPos = transform.position;
+            transform.localPosition = _returnPosition;
+            _targetPosition = transform.position;
+            transform.position = prevPos;
             transform.rotation = Quaternion.Euler(0, 0, 90f * startRotation);
-            _previousPosition = _startPosition;
+            _previousPosition = _targetPosition;
             StartCoroutine(MoveBack());
         }
     }
@@ -166,7 +171,7 @@ public class Block : MonoBehaviour
             return;
         }
         
-        Grid.Instance.CheckGrid();
+        BlockGrid.Instance.CheckGrid();
     }
     
     private IEnumerator MoveBack()

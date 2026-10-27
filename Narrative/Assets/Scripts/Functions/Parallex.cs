@@ -20,16 +20,18 @@ public class Parallex : MonoBehaviour
 
     private Vector2 velocity;
     private Vector2 smoothedMousePos;
+    private Vector2 pos;
 
     private void Awake()
     {
         StartPos = transform.position;
+        pos = transform.position;
     }
 
     private void Update()
     {
-        Vector2 camPos = (ParallexManager.Instance?.position ?? Vector2.zero) / depth;
-        Vector2 basePos = StartPos + camPos;
+        
+        Vector2 basePos = StartPos;
         
         // Smooth input when using velocity
         if (smoothMode == Smoothmode.Velocity)
@@ -42,12 +44,12 @@ public class Parallex : MonoBehaviour
         
         // Set targets
         Vector2 posTarget = basePos + smoothedMousePos / depth;
-        Vector2 rotTarget = new Vector2(smoothedMousePos.y - transform.position.y, smoothedMousePos.x - transform.position.x) * rotateAmount;
+        Vector2 rotTarget = new Vector2(smoothedMousePos.y - pos.y, smoothedMousePos.x - pos.x) * rotateAmount;
 
         // Apply transforms
         if (smoothMode == Smoothmode.Smoothed)
         {
-            transform.position = Vector2.Lerp(transform.position, posTarget, Time.deltaTime * smooth);
+            pos = Vector2.Lerp(pos, posTarget, Time.deltaTime * smooth);
             transform.eulerAngles = new Vector3(
                 Mathf.LerpAngle(transform.eulerAngles.x, rotTarget.x, Time.deltaTime * smooth),
                 Mathf.LerpAngle(transform.eulerAngles.y, rotTarget.y, Time.deltaTime * smooth),
@@ -55,8 +57,11 @@ public class Parallex : MonoBehaviour
         }
         else
         {
-            transform.position = posTarget;
+            pos = posTarget;
             transform.eulerAngles = rotTarget;
         }
+        
+        Vector2 camPos = (ParallexManager.Instance?.position ?? Vector3.zero) / depth;
+        transform.position = pos + camPos;
     }
 }

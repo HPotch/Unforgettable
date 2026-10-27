@@ -6,7 +6,7 @@ public class Hare : MonoBehaviour
     [SerializeField] private Sprite think, left, right;
     [SerializeField] private float thinkTime;
     [SerializeField] private AnimationCurve xScaleCurve, yScaleCurve, spriteCurve;
-    [SerializeField] private float animationTime;
+    [SerializeField] private float animationTime, animationMul = 0.5f;
 
     private SpriteRenderer _sr;
     
@@ -27,7 +27,7 @@ public class Hare : MonoBehaviour
 
     private IEnumerator ThinkRoutine()
     {
-        _sr.sprite = think;
+        StartCoroutine(AnimationRoutine(think));
         
         float timer = 0f;
         while (timer < thinkTime) 
@@ -42,7 +42,8 @@ public class Hare : MonoBehaviour
 
     private IEnumerator AnimationRoutine(Sprite after)
     {
-        print("change");
+        if (_sr.sprite == after) yield break;
+        
         float timer = 0f;
         Sprite before = _sr.sprite;
 
@@ -53,7 +54,7 @@ public class Hare : MonoBehaviour
             float tx = yScaleCurve.Evaluate(timer / animationTime);
             float ts = spriteCurve.Evaluate(timer / animationTime);
 
-            transform.localScale = new Vector3(tx, ty, 1f);
+            transform.localScale = Vector3.one + new Vector3(tx, ty, 1f) * animationMul;
             _sr.sprite = ts > 0.5f ? after : before;
             
             yield return null;

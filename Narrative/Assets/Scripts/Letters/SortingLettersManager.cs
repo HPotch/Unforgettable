@@ -32,13 +32,14 @@ public class SortingLettersManager : MonoBehaviour
             MoveChild(0);
         else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
             MoveChild(1);
+        else if (Mouse.current.leftButton.wasPressedThisFrame)
+            MoveChild(Mouse.current.position.ReadValue().x < Screen.width / 2f ? 0 : 1);
         else return;
         Destroy(controls); // User has inputted, we can remove the help
     }
     
     private void MoveChild(int targetNum)
     {
-        print(targetNum);
         Transform target = targetNum == 0 ? stack1 : stack2;
         Transform child = letterSpawner.GetChild(0);
         Letter letter = child.GetComponent<Letter>();
@@ -51,12 +52,10 @@ public class SortingLettersManager : MonoBehaviour
     private void Good()
     {
         correctLetters++;
-        print("Good");
     }
 
     private void Bad()
     {
         Instance.wrongLetters++;
-        print("Bad");
     }
 }

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Portrait : MonoBehaviour
 {
+    public static Portrait Instance;
+    
     private static readonly int T = Shader.PropertyToID("_T");
     [SerializeField] private Dictionary<string, Sprite> portraits;
     [SerializeField] private TextMeshProUGUI text;
@@ -21,6 +23,9 @@ public class Portrait : MonoBehaviour
         _image = GetComponent<Image>();
         _mat = _image.material;
         _mat.SetFloat(T, 0f);
+
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
     
     public void ShowPortrait(int i = 0)

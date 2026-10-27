@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BlockPart : MonoBehaviour
@@ -9,7 +8,7 @@ public class BlockPart : MonoBehaviour
     
     public GridPart GetNearestGridPart()
     {
-        Transform grid = Grid.Instance.transform;
+        Transform grid = BlockGrid.Instance.transform;
         foreach (GridPart child in grid.GetComponentsInChildren<GridPart>())
         {
             if (Vector2.Distance(transform.position, child.transform.position) < DiagonalLength)

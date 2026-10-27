@@ -7,6 +7,8 @@ using AudioSettings = AudioManager.AudioSettings;
 
 public class DialogueCaller : MonoBehaviour
 {
+    public static DialogueCaller Instance;
+    
     [Header("References")]
     [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
     [SerializeField] public List<DialogueComponent> dialogues = new List<DialogueComponent>();
@@ -22,6 +24,12 @@ public class DialogueCaller : MonoBehaviour
     private int _audioIndex = 0;
     public int _dialogueIndex = 0;
 
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+    
     public void NextAudio()
     {
         if (_audioIndex >= audioClips.Count) return;

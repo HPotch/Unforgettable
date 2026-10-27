@@ -20,7 +20,6 @@ public class Transition : MonoBehaviour
     [SerializeField] private float targetScale = 35f;
     [SerializeField] private bool transitionIn = true;
     [SerializeField] private SceneAsset defaultScene;
-    private RayManager ray;
     
     // Private variables
     private string _targetScene;
@@ -48,7 +47,7 @@ public class Transition : MonoBehaviour
     public void StartTransition(SceneAsset nextScene)
     {
         // Errors
-        if (!sceneInBuild(nextScene.name))
+        if (!SceneInBuild(nextScene.name))
         {
             Debug.LogError($"Scene '{nextScene.name}' is not valid or not in Build Settings!");
             return;
@@ -63,7 +62,7 @@ public class Transition : MonoBehaviour
         _routine = StartCoroutine(TransitionRoutine());
     }
 
-    private bool sceneInBuild(string s)
+    private bool SceneInBuild(string s)
     {
         foreach (string scene in _buildScenes.Values)
         {
