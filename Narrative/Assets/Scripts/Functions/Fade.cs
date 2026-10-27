@@ -9,7 +9,7 @@ public class Fade : MonoBehaviour
 {
     [SerializeField] private float waitTime = 0f;
     [SerializeField] private float fadeTime = 1f;
-    [SerializeField] private bool fadeInOnStart = true, fadeOutOnStart = false, startHidden = true, useWaitAtFadeOut = false;
+    [SerializeField] private bool fadeInOnStart = true, fadeOutOnStart = false, startHidden = true, useWaitAtFadeOut = false, alsoScale = false;
     [SerializeField] private UnityEvent fadedIn, fadedOut;
     [SerializeField] private List<SpriteRenderer> includeSprites;
     [SerializeField] private List<Image> includeImages;
@@ -21,6 +21,7 @@ public class Fade : MonoBehaviour
     private Image _img;
     private Color _startColor = Color.white;
     private Coroutine _fadeRoutine;
+    private Vector2 _startScale;
     
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class Fade : MonoBehaviour
         _img = GetComponent<Image>();
         if (useImg ? _img : _sr) _startColor = (useImg ? _img.color : _sr.color);
         if (startHidden) SetColor(new Color(_startColor.r, _startColor.g, _startColor.b, 0f));
+        _startScale = transform.localScale;
     }
     
     public void FadeIn()
@@ -59,6 +61,7 @@ public class Fade : MonoBehaviour
         SetColor(fadeIn 
             ? new Color(_startColor.r, _startColor.g, _startColor.b, 0f)
             : _startColor);
+        SetScale(fadeIn ? Vector3.zero : _startScale);
         
         // Animation loop
         while (timer < fadeTime + wait)
@@ -66,10 +69,16 @@ public class Fade : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > wait)
             {
+                float t = Mathf.Clamp01((timer - wait) / fadeTime);
                 float a = fadeIn
-                    ? Mathf.Lerp(0f, _startColor.a, Mathf.Clamp01((timer - wait) / fadeTime))
-                    : Mathf.Lerp(_startColor.a, 0f, Mathf.Clamp01((timer - wait) / fadeTime));
+                    ? Mathf.Lerp(0f, _startColor.a, t)
+                    : Mathf.Lerp(_startColor.a, 0f, t);
                 SetColor(new Color(_startColor.r, _startColor.g, _startColor.b, a));
+
+                SetScale(Vector2.Lerp(
+                    fadeIn ? Vector2.zero : _startScale,
+                    fadeIn ? _startScale : Vector2.zero,
+                    t));
             }
             yield return null;
         }
@@ -82,6 +91,7 @@ public class Fade : MonoBehaviour
         if (_sr) SetColor(fadeIn
             ? _startColor
             : new Color(_startColor.r, _startColor.g, _startColor.b, 0f));
+        SetScale(fadeIn ? _startScale : Vector3.zero);
         
         // Exit cleanly
         _fadeRoutine = null;
@@ -97,5 +107,10 @@ public class Fade : MonoBehaviour
             img.color = col;
         foreach (TMP_Text tmp in includeText)
             tmp.color = col;
+    }
+
+    private void SetScale(Vector2 scale)
+    {
+        if (alsoScale) transform.localScale = scale;
     }
 }

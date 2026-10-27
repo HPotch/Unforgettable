@@ -12,13 +12,12 @@ public class SortingLettersManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public int correctLetters = 0;
-    public int wrongLetters = 0;
-    
     public UnityEvent afterMove;
     [SerializeField] private GameObject controls;
     [SerializeField] private Transform letterSpawner;
     [SerializeField] private Transform stack1, stack2;
+    [SerializeField] private UnityEvent onCorrect, onWrong;
+    [SerializeField] private Vector2Int spamSpam, spamImportant, importantSpam, importantImportant; // Ranges, so x = min, y = max
 
     // 0 = left, 1 = right
     public int CurrentDirection()
@@ -45,17 +44,21 @@ public class SortingLettersManager : MonoBehaviour
         Letter letter = child.GetComponent<Letter>();
         child.SetParent(target);
         letter.MoveToTarget(target.position);
-        if (letter.correctStack == targetNum) Good();
-        else Bad();
+        if (letter.correctStack == targetNum) Good(targetNum);
+        else Bad(targetNum);
     }
     
-    private void Good()
+    private void Good(int num)
     {
-        correctLetters++;
+        onCorrect.Invoke();
+        Vector2Int range = num == 0 ? spamSpam : importantImportant;
+        DialogueCaller.Instance.SetDialogue(Random.Range(range.x, range.y + 1));
     }
 
-    private void Bad()
+    private void Bad(int num)
     {
-        Instance.wrongLetters++;
+        onWrong.Invoke();
+        Vector2Int range = num == 0 ? importantSpam : spamImportant;
+        DialogueCaller.Instance.SetDialogue(Random.Range(range.x, range.y + 1));
     }
 }

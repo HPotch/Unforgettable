@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using EasyTextEffects;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class DialogueManager : MonoBehaviour
 {
