@@ -589,6 +589,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f48cda2e11d836d6b8fe47e84bd4460e, type: 3}
   switchTime: 0.03
   oneShot: 1
+  preview: 0
 --- !u!1 &143233863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,6 +3578,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 475f1c1e25e3c354eb4dc595d3af764c, type: 3}
   switchTime: 0.7
   oneShot: 0
+  preview: 0
 --- !u!212 &1926002854
 SpriteRenderer:
   serializedVersion: 3
@@ -3626,7 +3628,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 795154eebe6e676059dfa964a3da2fbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 475f1c1e25e3c354eb4dc595d3af764c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3697,6 +3699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad203513bb9720aab8ca7f2f9174b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RayManager
+  mouseOver: {fileID: 0}
+  mouseWorldPos: {x: 0, y: 0}
   cam: {fileID: 0}
   preferMask:
     serializedVersion: 2
@@ -3876,6 +3880,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f48cda2e11d836d6b8fe47e84bd4460e, type: 3}
   switchTime: 0.03
   oneShot: 1
+  preview: 0
 --- !u!224 &178513344387139190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4558,8 +4563,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: defaultScene
-      value: 
-      objectReference: {fileID: 102900000, guid: b18284dda140fb99b9daf37c2f040f8f, type: 3}
+      value: 02 Toothbrush
+      objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: transitionIn
       value: 0

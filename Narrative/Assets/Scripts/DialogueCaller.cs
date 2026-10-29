@@ -58,6 +58,9 @@ public class DialogueCaller : MonoBehaviour
             Debug.LogError($"Dialogue Index: {index} out of range");
             return;
         }
+
+        DialogueManager.Instance.Complete();
+        DialogueManager.Instance.Exiting = false;
         DialogueManager.Instance.ChangeDialogue(dialogues[index]);
         _dialogueIndex = index;
     }

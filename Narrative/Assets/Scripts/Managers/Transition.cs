@@ -19,7 +19,7 @@ public class Transition : MonoBehaviour
     [SerializeField] private AnimationCurve transitionCurve;
     [SerializeField] private float targetScale = 35f;
     [SerializeField] private bool transitionIn = true;
-    [SerializeField] private SceneAsset defaultScene;
+    [SerializeField] private string defaultScene;
     
     // Private variables
     private string _targetScene;
@@ -44,12 +44,12 @@ public class Transition : MonoBehaviour
         StartTransition(defaultScene);
     }
     
-    public void StartTransition(SceneAsset nextScene)
+    public void StartTransition(string nextScene)
     {
         // Errors
-        if (!SceneInBuild(nextScene.name))
+        if (!SceneInBuild(nextScene))
         {
-            Debug.LogError($"Scene '{nextScene.name}' is not valid or not in Build Settings!");
+            Debug.LogError($"Scene '{nextScene}' is not valid or not in Build Settings!");
             return;
         }
         if (_routine != null)
@@ -58,7 +58,7 @@ public class Transition : MonoBehaviour
             return;
         }
         // Transition
-        _targetScene = nextScene.name;
+        _targetScene = nextScene;
         _routine = StartCoroutine(TransitionRoutine());
     }
 

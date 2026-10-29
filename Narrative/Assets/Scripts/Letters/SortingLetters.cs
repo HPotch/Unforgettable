@@ -4,20 +4,19 @@ using UnityEngine.Events;
 
 public class SortingLetters : MonoBehaviour
 {
-    [SerializeField] private float appearWait = 2f;
-    [SerializeField] private float startWait = 3f;
-    [SerializeField] private UnityEvent onAppear;
-    [SerializeField] private UnityEvent onStart;
+    [SerializeField] private float appearWait = 1f, startWait = 1f;
+    [SerializeField] private UnityEvent onAppear, onStart;
     
-    private void Start()
+    public void StartGame()
     {
-        StartCoroutine(WaitRoutine(appearWait, onAppear));
-        StartCoroutine(WaitRoutine(startWait, onStart));
+        StartCoroutine(WaitRoutine());
     }
 
-    private IEnumerator WaitRoutine(float time, UnityEvent action)
+    private IEnumerator WaitRoutine()
     {
-        yield return new WaitForSeconds(time);
-        action.Invoke();
+        yield return new WaitForSeconds(appearWait);
+        onAppear.Invoke();
+        yield return new WaitForSeconds(startWait);
+        onStart.Invoke();
     }
 }

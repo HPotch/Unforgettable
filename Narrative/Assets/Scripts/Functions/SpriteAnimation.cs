@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteAlways]
 public class SpriteAnimation : MonoBehaviour
 {
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float switchTime = 0.7f;
     [SerializeField] private bool oneShot = false;
+    [SerializeField] private bool preview;
 
     private int _index = 0;
     private float _timer = 0f;
@@ -32,7 +34,7 @@ public class SpriteAnimation : MonoBehaviour
 
     private void Update()
     {
-        if (!_playing) return;
+        if (!_playing && !preview) return;
         _timer += Time.deltaTime;
 
         if (!(_timer > switchTime)) return;

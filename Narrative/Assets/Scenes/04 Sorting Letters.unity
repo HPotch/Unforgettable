@@ -172,6 +172,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
   switchTime: 0.25
   oneShot: 0
+  preview: 0
 --- !u!212 &24070055
 SpriteRenderer:
   serializedVersion: 3
@@ -313,6 +314,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
   switchTime: 0.25
   oneShot: 0
+  preview: 0
 --- !u!212 &52582150
 SpriteRenderer:
   serializedVersion: 3
@@ -362,7 +364,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9563e0d8d6f8989c0a22d91c7d0c7e64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -647,6 +649,8 @@ Transform:
   - {fileID: 1509070863}
   - {fileID: 746974283}
   - {fileID: 829952439}
+  - {fileID: 1930617262}
+  - {fileID: 1631205725}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &528728319
@@ -662,7 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parallex
   depth: -70
-  smooth: 50
+  smooth: 10
   rotateAmount: 0
   smoothMode: 1
 --- !u!1 &672127933
@@ -1024,6 +1028,7 @@ GameObject:
   - component: {fileID: 817113721}
   - component: {fileID: 817113723}
   - component: {fileID: 817113724}
+  - component: {fileID: 817113725}
   m_Layer: 0
   m_Name: Hare
   m_TagString: Untagged
@@ -1118,10 +1123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5063f4d4fca8c39f58f0f181314a2b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hare
+  lying: 0
   think: {fileID: 21300000, guid: 23a3be4364ca07e0d8657608ec9d1fc8, type: 3}
   left: {fileID: 21300000, guid: 4d4bdc6176fb3161795f64eba9eec55b, type: 3}
   right: {fileID: 21300000, guid: 1f78c4ec8d1ff2547aa584cca05523e9, type: 3}
-  thinkTime: 2
+  thinkTime: 2.5
   xScaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -1241,6 +1247,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   animationTime: 0.3
   animationMul: 0.4
+  randomLieIndex: {x: 4, y: 7}
 --- !u!114 &817113724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1269,6 +1276,24 @@ MonoBehaviour:
   includeSprites: []
   includeImages: []
   includeText: []
+--- !u!114 &817113725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817113720}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5ec0349fed53dfbba949a160e12461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation
+  sprites:
+  - {fileID: 21300000, guid: 92f505cdbd58b60e299fb66959011e1e, type: 3}
+  - {fileID: 21300000, guid: 792b61fb3fdbfe305b1738ac845bf032, type: 3}
+  switchTime: 0.3
+  oneShot: 0
+  preview: 0
 --- !u!1 &829952436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4124,8 +4149,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: defaultScene
-      value: 
-      objectReference: {fileID: 102900000, guid: 1cd26917753cbe0269468b85c591bba5, type: 3}
+      value: 04.5 Transition
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4662,6 +4687,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601673295}
   m_CullTransparentMesh: 1
+--- !u!1 &1631205724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1631205725}
+  - component: {fileID: 1631205726}
+  m_Layer: 0
+  m_Name: Spawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1631205725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631205724}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.9, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 528728318}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1631205726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631205724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86876c04011afb7490e5aca6dcb4368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  prefabs:
+  - {fileID: 3181287646492760844, guid: d04d873a499eac239af62002add176f1, type: 3}
+  - {fileID: 6047034050487910636, guid: f4dec72a3b2a74072b37ab3fcd990b52, type: 3}
 --- !u!1 &1653597731
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,7 +4864,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726434058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c6fa9d711146d57eb1923dfa0f69981, type: 3}
   m_Name: 
@@ -4812,20 +4884,92 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  end: 0
+  onEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 817113725}
+        m_TargetAssemblyTypeName: SpriteAnimation, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   controls: {fileID: 746974282}
   letterSpawner: {fileID: 2093098371}
   stack1: {fileID: 1581252335}
   stack2: {fileID: 217086405}
-  onCorrect:
+  onSpamSpam:
     m_PersistentCalls:
-      m_Calls: []
-  onWrong:
+      m_Calls:
+      - m_Target: {fileID: 1930617263}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSpamImportant:
     m_PersistentCalls:
-      m_Calls: []
-  spamSpam: {x: 1, y: 3}
-  spamImportant: {x: 4, y: 6}
-  importantSpam: {x: 10, y: 12}
-  importantImportant: {x: 7, y: 8}
+      m_Calls:
+      - m_Target: {fileID: 1631205726}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onImportantSpam:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1930617263}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onImportantImportant:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1631205726}
+        m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
+        m_MethodName: Spawn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  spamSpam: {x: 4, y: 6}
+  spamImportant: {x: 7, y: 8}
+  importantSpam: {x: 13, y: 15}
+  importantImportant: {x: 10, y: 12}
+  wrongOnLieIndex: 16
+  hare: {fileID: 817113723}
 --- !u!114 &1726434061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4838,8 +4982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4804f3891cd1cb391585400f346100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SortingLetters
-  appearWait: 2
-  startWait: 3
+  appearWait: 1
+  startWait: 5
   onAppear:
     m_PersistentCalls:
       m_Calls:
@@ -4866,6 +5010,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 817113723}
+        m_TargetAssemblyTypeName: Hare, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   onStart:
     m_PersistentCalls:
@@ -4930,18 +5086,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 817113723}
-        m_TargetAssemblyTypeName: Hare, Assembly-CSharp
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1726434062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4971,6 +5115,90 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCaller
   audioClips: []
   dialogues:
+  - text: Spam and important mail is all mixed up, dad. Let's sort them.
+    color: {r: 0, g: 0, b: 0, a: 1}
+    fontSize: 40
+    autoSkipTime: 0
+    customNext: -1
+    skipState: 0
+    OnStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1349877627}
+          m_TargetAssemblyTypeName: Portrait, Assembly-CSharp
+          m_MethodName: ShowPortrait
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: But how do I..
+    color: {r: 0, g: 0, b: 0, a: 1}
+    fontSize: 40
+    autoSkipTime: 1.5
+    customNext: -1
+    skipState: 1
+    OnStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1349877627}
+          m_TargetAssemblyTypeName: Portrait, Assembly-CSharp
+          m_MethodName: ShowPortrait
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1726434061}
+          m_TargetAssemblyTypeName: SortingLetters, Assembly-CSharp
+          m_MethodName: StartGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: You know, nevermind.
+    color: {r: 0, g: 0, b: 0, a: 1}
+    fontSize: 40
+    autoSkipTime: 2
+    customNext: -1
+    skipState: 1
+    OnStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1349877627}
+          m_TargetAssemblyTypeName: Portrait, Assembly-CSharp
+          m_MethodName: HidePortrait
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - text: ' '
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -4987,7 +5215,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5011,7 +5239,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5035,7 +5263,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5059,7 +5287,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5083,7 +5311,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5107,7 +5335,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5131,7 +5359,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5155,7 +5383,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5179,7 +5407,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5203,7 +5431,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5227,7 +5455,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
     OnStart:
       m_PersistentCalls:
@@ -5251,8 +5479,92 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
     autoSkipTime: 5
-    customNext: 0
+    customNext: 3
     skipState: 1
+    OnStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1349877627}
+          m_TargetAssemblyTypeName: Portrait, Assembly-CSharp
+          m_MethodName: ShowPortrait
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: Dad?? What are you doing?
+    color: {r: 0, g: 0, b: 0, a: 1}
+    fontSize: 40
+    autoSkipTime: 0
+    customNext: 17
+    skipState: 0
+    OnStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1349877627}
+          m_TargetAssemblyTypeName: Portrait, Assembly-CSharp
+          m_MethodName: ShowPortrait
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: That's wrong, don't you see that?
+    color: {r: 0, g: 0, b: 0, a: 1}
+    fontSize: 40
+    autoSkipTime: 0
+    customNext: -1
+    skipState: 0
+    OnStart:
+      m_PersistentCalls:
+        m_Calls: []
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: But.. The hare, it...
+    color: {r: 0, g: 0, b: 0, a: 1}
+    fontSize: 40
+    autoSkipTime: 2
+    customNext: -1
+    skipState: 1
+    OnStart:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1349877627}
+          m_TargetAssemblyTypeName: Portrait, Assembly-CSharp
+          m_MethodName: ShowPortrait
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    OnEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - text: You know, maybe I better take care of this. Meet you in the living room. OK?
+    color: {r: 0, g: 0, b: 0, a: 1}
+    fontSize: 40
+    autoSkipTime: 0
+    customNext: -1
+    skipState: 0
     OnStart:
       m_PersistentCalls:
         m_Calls:
@@ -5295,7 +5607,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
   endFadeTime: 0.2
   loopTime: 2
-  startWaitTime: 0
+  startWaitTime: 2
   _dialogueIndex: 0
 --- !u!1 &1748180410
 GameObject:
@@ -5678,6 +5990,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: facacce9d633948e2ac3db3d40af247c, type: 3}
+--- !u!1 &1930617261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1930617262}
+  - component: {fileID: 1930617263}
+  m_Layer: 0
+  m_Name: Spawner1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1930617262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930617261}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.2, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 528728318}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930617263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930617261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86876c04011afb7490e5aca6dcb4368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  prefabs:
+  - {fileID: 3181287646492760844, guid: d04d873a499eac239af62002add176f1, type: 3}
+  - {fileID: 6047034050487910636, guid: f4dec72a3b2a74072b37ab3fcd990b52, type: 3}
 --- !u!1 &1971212251
 GameObject:
   m_ObjectHideFlags: 0
@@ -5784,7 +6143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parallex
   depth: -100
-  smooth: 50
+  smooth: 10
   rotateAmount: 0
   smoothMode: 1
 --- !u!1001 &2049595834

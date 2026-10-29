@@ -450,6 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad203513bb9720aab8ca7f2f9174b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RayManager
+  mouseOver: {fileID: 0}
+  mouseWorldPos: {x: 0, y: 0}
   cam: {fileID: 0}
   preferMask:
     serializedVersion: 2
@@ -548,8 +550,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: defaultScene
-      value: 
-      objectReference: {fileID: 102900000, guid: f07568ac5439efc6699a021e2dc16294, type: 3}
+      value: 04 Sorting Letters
+      objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: transitionIn
       value: 0
