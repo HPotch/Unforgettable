@@ -39,9 +39,10 @@ public class Portrait : MonoBehaviour
         StartCoroutine(VisibilityAnimation(false));
     }
 
-    public void ChangeName(int i = 0, string name = "")
+    public void ChangeName(int i = 0, string n = "")
     {
-        portraits.Keys.ToList()[i] = name;
+        print(n);
+        portraits.Keys.ToList()[i] = n;
     }
     
     

@@ -4,10 +4,9 @@ using UnityEngine.InputSystem;
 
 public class Button : MonoBehaviour
 {
-    public UnityEvent onPressed;
-    public UnityEvent onReleased;
+    public UnityEvent onPressed, onReleased, onHover, onHoverExit;
     private Collider2D _collider;
-    private bool _pressed = false;
+    private bool _pressed = false, _hovered;
 
     private void Awake()
     {
@@ -16,15 +15,36 @@ public class Button : MonoBehaviour
 
     private void Update()
     {
-        if (RayManager.Instance.mouseOver == _collider && Mouse.current.leftButton.wasPressedThisFrame)
-            Pressed();
-        if (_pressed && Mouse.current.leftButton.wasReleasedThisFrame)
-            onReleased.Invoke();
+        if (RayManager.Instance.mouseOver == _collider)
+        {
+            if (!_hovered) Hover();
+            if (Mouse.current.leftButton.wasPressedThisFrame) Press();
+        } else if (_hovered) HoverExit();
+        
+        if (_pressed && Mouse.current.leftButton.wasReleasedThisFrame) Release();
     }
 
-    private void Pressed()
+    private void Hover()
+    {
+        _hovered = true;
+        onHover.Invoke();
+    }
+
+    private void HoverExit()
+    {
+        _hovered = false;
+        onHoverExit.Invoke();
+    }
+
+    private void Press()
     {
         _pressed = true;
         onPressed.Invoke();
+    }
+
+    private void Release()
+    {
+        _pressed = false;
+        onReleased.Invoke();
     }
 }

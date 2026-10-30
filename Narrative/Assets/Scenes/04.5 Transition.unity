@@ -550,8 +550,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: defaultScene
-      value: 
-      objectReference: {fileID: 102900000, guid: 09b0d4f2b53118f26a4e75357032ad98, type: 3}
+      value: 05 End
+      objectReference: {fileID: 0}
     - target: {fileID: 4011893440663355637, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
       propertyPath: transitionIn
       value: 0
@@ -644,7 +644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4827791957453068084, guid: ae231877d57c29c72b3b7596a252c065, type: 3}
       propertyPath: dialogues.Array.data[0].text
-      value: End. (for now)
+      value: Is it your family, there,  in the living room?
       objectReference: {fileID: 0}
     - target: {fileID: 4827791957453068084, guid: ae231877d57c29c72b3b7596a252c065, type: 3}
       propertyPath: dialogues.Array.data[1].text

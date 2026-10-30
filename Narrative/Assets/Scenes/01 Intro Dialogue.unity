@@ -3987,7 +3987,7 @@ RectTransform:
   m_GameObject: {fileID: 2926162203460709449}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.96, y: 0.96, z: 0.96}
+  m_LocalScale: {x: 1.09, y: 1.09, z: 1.09}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7694029134415298683}
@@ -4037,6 +4037,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   onReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!23 &1853627708102837977
@@ -4195,7 +4201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3037625871355997708
 RectTransform:
   m_ObjectHideFlags: 0
