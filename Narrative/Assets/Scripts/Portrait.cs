@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,9 +8,16 @@ using UnityEngine.UI;
 public class Portrait : MonoBehaviour
 {
     public static Portrait Instance;
+
+    [Serializable]
+    public class PortraitInfo
+    {
+        public string name;
+        public Sprite sprite;
+    }
     
     private static readonly int T = Shader.PropertyToID("_T");
-    [SerializeField] private Dictionary<string, Sprite> portraits;
+    [SerializeField] private List<PortraitInfo> portraits;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private float animationSpeed = 0.5f;
     [SerializeField] private AnimationCurve animationCurve;
@@ -30,7 +37,7 @@ public class Portrait : MonoBehaviour
     
     public void ShowPortrait(int i = 0)
     {
-        if (portraits.Values.ToList()[i] == _image.sprite && _mat.GetFloat(T) > 0f) return; // Return if switching to the same portrait and not hidden
+        if (portraits[i].sprite == _image.sprite && _mat.GetFloat(T) > 0f) return; // Return if switching to the same portrait and not hidden
         StartCoroutine(ShowPortraitRoutine(i));
     }
     
@@ -41,8 +48,7 @@ public class Portrait : MonoBehaviour
 
     public void ChangeName(int i = 0, string n = "")
     {
-        print(n);
-        portraits.Keys.ToList()[i] = n;
+        portraits[i].name = n;
     }
     
     
@@ -84,8 +90,8 @@ public class Portrait : MonoBehaviour
             return;
         }
         
-        _image.sprite = portraits.Values.ToList()[i];
-        text.text = portraits.Keys.ToList()[i];
+        _image.sprite = portraits[i].sprite;
+        text.text = portraits[i].name;
         // Animate
         StartCoroutine(VisibilityAnimation(true));
     }

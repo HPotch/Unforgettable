@@ -3628,7 +3628,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 795154eebe6e676059dfa964a3da2fbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 475f1c1e25e3c354eb4dc595d3af764c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4269,6 +4269,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 311449048}
     m_Modifications:
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[0].name
+      value: You
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[1].name
+      value: "H\xEBlla"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[2].name
+      value: You
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[3].name
+      value: Thought
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd5ebe77b9df0abf6bd7fd694c2a2359, type: 3}
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3525ad50a618cc8e49d2a7cba437470a, type: 3}
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f1c61d9c1a37e3e2b6c20830564738c, type: 3}
+    - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
+      propertyPath: portraits.Array.data[3].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4611f700019bfeac58beeeb55384edfb, type: 3}
     - target: {fileID: 2425308641278687447, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

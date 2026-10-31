@@ -62,7 +62,7 @@ public class DaughterScene : MonoBehaviour
             val => rect.sizeDelta = new Vector2(val, rect.sizeDelta.y), 
             rect.sizeDelta.x);
         
-        Portrait.Instance.ChangeName(3, "Eevi");
+        Portrait.Instance.ChangeName(2, "Eevi");
 
         StartCoroutine(WaitAndContine(parallexSpeed));
     }
