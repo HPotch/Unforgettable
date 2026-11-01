@@ -16,19 +16,29 @@ public class SpriteAnimation : MonoBehaviour
 
     private bool _useImage = false;
     private bool  _playing = true;
+    private bool _backwards = false;
 
     private void Awake()
     {
         if (oneShot) _playing = false;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         if (_spriteRenderer) return;
-        _image =  GetComponent<Image>();
+        _image = GetComponent<Image>();
         _useImage = true;
         if (!_image) Debug.LogError("No SpriteRenderer or Image component found");
     }
 
     public void StartAnimation()
     {
+        _backwards = false;
+        _index = 0;
+        _playing = true;
+    }
+    
+    public void StartAnimationBackwards()
+    {
+        _backwards = true;
+        _index = sprites.Length - 1;
         _playing = true;
     }
 
@@ -39,10 +49,13 @@ public class SpriteAnimation : MonoBehaviour
 
         if (!(_timer > switchTime)) return;
         _timer = 0f;
-        _index++;
+        _index += _backwards ? -1 : 1;
 
         // Exit if last frame and oneShot
-        if (_index >= sprites.Length && oneShot)
+        bool exceeded = _backwards
+            ? _index < 0
+            : _index >= sprites.Length;
+        if (exceeded && oneShot)
         {
             _playing = false;
             return;

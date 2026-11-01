@@ -9,28 +9,35 @@ public class Parallex : MonoBehaviour
         Smoothed,
         Velocity
     }
+
+    [Serializable]
+    public class Axis
+    {
+        public bool x, y, z;
+    }
     
     [Header("Settings")]
     [SerializeField] private float depth = 10f;
     [SerializeField] private float smooth = 50f;
     [SerializeField] private float rotateAmount = 0f;
     [SerializeField] private Smoothmode smoothMode = Smoothmode.None;
+    [SerializeField] private Axis ignorePos, ignoreRot;
 
     [NonSerialized] public Vector2 StartPos;
 
-    private Vector2 velocity;
-    private Vector2 smoothedMousePos;
-    private Vector2 pos;
+    private Vector2 velocity, smoothedMousePos, pos;
+    private Vector3 _backUpPos, _backUpRot;
 
     private void Awake()
     {
         StartPos = transform.position;
         pos = transform.position;
+        _backUpPos = transform.localPosition;
+        _backUpRot = transform.localEulerAngles;
     }
 
     private void Update()
     {
-        
         Vector2 basePos = StartPos;
         
         // Smooth input when using velocity
@@ -63,5 +70,19 @@ public class Parallex : MonoBehaviour
         
         Vector2 camPos = (ParallexManager.Instance?.position ?? Vector3.zero) / depth;
         transform.position = pos + camPos;
+
+        Ignore();
+    }
+
+    private void Ignore()
+    {
+        transform.localPosition = new Vector3(
+            ignorePos.x ? _backUpPos.x : transform.localPosition.x,
+            ignorePos.y ? _backUpPos.y : transform.localPosition.y,
+            ignorePos.z ? _backUpPos.z : transform.localPosition.z);
+        transform.localEulerAngles = new Vector3(
+            ignoreRot.x ? _backUpRot.x : transform.localEulerAngles.x,
+            ignoreRot.y ? _backUpRot.y : transform.localEulerAngles.y,
+            ignoreRot.z ? _backUpRot.z : transform.localEulerAngles.z);
     }
 }

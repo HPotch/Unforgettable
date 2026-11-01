@@ -95,7 +95,7 @@ public class Polaroid : MonoBehaviour
         polaroid.gameObject.SetActive(activate);
         background.gameObject.SetActive(activate);
         dot.gameObject.SetActive(activate);
-        button.gameObject.SetActive(activate);
+        button?.gameObject.SetActive(activate);
     }
 
     // Set the values of all the objects to the t value
@@ -106,7 +106,7 @@ public class Polaroid : MonoBehaviour
         polaroid.transform.localScale = Vector3.one * Mathf.LerpUnclamped(ad.scale.x, ad.scale.y, t);
         background.color = new Color(background.color.r, background.color.g, background.color.b, Mathf.Lerp(ad.darkening.x, ad.darkening.y, t));
         dot.color = new Color(dot.color.r, dot.color.g, dot.color.b, Mathf.Lerp(ad.lighting.x, ad.lighting.y, t));
-        button.transform.localScale = Vector3.one * Mathf.LerpUnclamped(ad.buttonSize.x, ad.buttonSize.y, t);
+        if (button) button.transform.localScale = Vector3.one * Mathf.LerpUnclamped(ad.buttonSize.x, ad.buttonSize.y, t);
     }
 
     // Invert all the Vector2s (x becomes y and y becomes x)

@@ -7,7 +7,7 @@ public class AnimateTransform : MonoBehaviour
     [SerializeField] private float animationTime = 3f, waitTime = 0f;
     [SerializeField] private AnimationCurve positionCurve, rotationCurve, scaleCurve;
     [SerializeField] private Vector3 positionAmount, rotationAmount, scaleAmount;
-    [SerializeField] private bool executeOnAwake = false;
+    [SerializeField] private bool executeOnAwake = false, unclamped = false;
     [SerializeField] private UnityEvent onStart, onEnd;
 
     private Vector3 _startPos, _startRot, _startScale;
@@ -49,6 +49,13 @@ public class AnimateTransform : MonoBehaviour
 
     private void SetTransform(float t)
     {
+        if (unclamped)
+        {
+            transform.localPosition = Vector3.LerpUnclamped(_startPos, positionAmount, positionCurve.Evaluate(t));
+            transform.localEulerAngles = Vector3.LerpUnclamped(_startRot, rotationAmount, rotationCurve.Evaluate(t));
+            transform.localScale = Vector3.LerpUnclamped(_startScale, scaleAmount, scaleCurve.Evaluate(t));
+            return;
+        }
         transform.localPosition = Vector3.Lerp(_startPos, positionAmount, positionCurve.Evaluate(t));
         transform.localEulerAngles = Vector3.Lerp(_startRot, rotationAmount, rotationCurve.Evaluate(t));
         transform.localScale = Vector3.Lerp(_startScale, scaleAmount, scaleCurve.Evaluate(t));

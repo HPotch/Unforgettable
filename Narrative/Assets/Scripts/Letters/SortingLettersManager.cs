@@ -44,13 +44,9 @@ public class SortingLettersManager : MonoBehaviour
             MoveChild(0);
         else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
             MoveChild(1);
-        else if (Mouse.current.leftButton.wasPressedThisFrame)
-            MoveChild(RayManager.Instance.mouseWorldPos.x < center ? 0 : 1);
-        else return;
-        Destroy(controls); // User has inputted, we can remove the help
     }
     
-    private void MoveChild(int targetNum)
+    public void MoveChild(int targetNum)
     {
         Transform target = targetNum == 0 ? stack1 : stack2;
         Transform child = letterSpawner.GetChild(0);
@@ -59,6 +55,8 @@ public class SortingLettersManager : MonoBehaviour
         letter.MoveToTarget(target.position);
         if (letter.correctStack == targetNum) Good(targetNum);
         else Bad(targetNum, hare.lying);
+        
+        Destroy(controls); // User has inputted, we can remove the help
     }
     
     private void Good(int num)

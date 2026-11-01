@@ -364,7 +364,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9563e0d8d6f8989c0a22d91c7d0c7e64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -5562,6 +5562,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1879288168}
+          m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
+          m_MethodName: Execute
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1750737807}
+          m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
+          m_MethodName: Execute
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
@@ -5756,6 +5780,7 @@ GameObject:
   - component: {fileID: 1750737805}
   - component: {fileID: 1750737804}
   - component: {fileID: 1750737803}
+  - component: {fileID: 1750737807}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -5792,7 +5817,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Button
   onPressed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1726434060}
+        m_TargetAssemblyTypeName: SortingLettersManager, Assembly-CSharp
+        m_MethodName: MoveChild
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onReleased:
     m_PersistentCalls:
       m_Calls: []
@@ -5960,6 +5997,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1750737807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750737801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d13c5a7cfec43d49a1f203e04245f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
+  objectToDestroy: {fileID: 0}
 --- !u!1 &1751989661
 GameObject:
   m_ObjectHideFlags: 0
@@ -6262,6 +6312,7 @@ GameObject:
   - component: {fileID: 1879288166}
   - component: {fileID: 1879288165}
   - component: {fileID: 1879288164}
+  - component: {fileID: 1879288168}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -6298,7 +6349,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Button
   onPressed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1726434060}
+        m_TargetAssemblyTypeName: SortingLettersManager, Assembly-CSharp
+        m_MethodName: MoveChild
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onReleased:
     m_PersistentCalls:
       m_Calls: []
@@ -6466,6 +6529,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1879288168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879288162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d13c5a7cfec43d49a1f203e04245f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyObject
+  objectToDestroy: {fileID: 0}
 --- !u!1 &1930617261
 GameObject:
   m_ObjectHideFlags: 0

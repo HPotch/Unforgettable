@@ -45,6 +45,14 @@ public class Fade : MonoBehaviour
         _fadeRoutine = StartCoroutine(FadeRoutine(false));
     }
 
+    public void SetFadeAmount(float t)
+    {
+        t = Mathf.Clamp01(t);
+        SetColor(new Color(_startColor.r, _startColor.g, _startColor.b, 
+            Mathf.Lerp(0f, _startColor.a, t)));
+        SetScale(Vector2.Lerp(_startScale, Vector2.zero, t));
+    }
+
     private void Start()
     {
         if (fadeInOnStart) FadeIn();
@@ -102,11 +110,11 @@ public class Fade : MonoBehaviour
         if (_sr) _sr.color = col;
         if (_img) _img.color = col;
         foreach (SpriteRenderer sr in includeSprites)
-            sr.color = col;
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, col.a);
         foreach (Image img in includeImages)
-            img.color = col;
+            img.color = new Color(img.color.r, img.color.g, img.color.b, col.a);
         foreach (TMP_Text tmp in includeText)
-            tmp.color = col;
+            tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, col.a);
     }
 
     private void SetScale(Vector2 scale)
