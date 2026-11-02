@@ -82,6 +82,8 @@ public class DialogueCaller : MonoBehaviour
 
     private void PlayWritingAudio()
     {
+        DialogueComponent dc = DialogueManager.Instance.TargetDC;
+        if (dc.text is "" or " " or "  " || dc.dontPlayAudio) return;
         AudioManager.Instance.PlayAudioSettings(writing);
     }
 

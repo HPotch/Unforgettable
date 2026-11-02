@@ -364,7 +364,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 9563e0d8d6f8989c0a22d91c7d0c7e64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5dd5fcbefb9c10a4980a58d3cf130f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -671,6 +671,14 @@ MonoBehaviour:
   smooth: 10
   rotateAmount: 0
   smoothMode: 1
+  ignorePos:
+    x: 0
+    y: 0
+    z: 0
+  ignoreRot:
+    x: 0
+    y: 0
+    z: 0
 --- !u!1 &672127933
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,8 +4377,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 66d8f374a11264ff4be4b707c4f542de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4446,10 +4454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4687,8 +4695,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 66d8f374a11264ff4be4b707c4f542de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4822,8 +4830,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 66d8f374a11264ff4be4b707c4f542de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5181,6 +5189,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: But how do I..
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5217,6 +5226,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: You know, nevermind.
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5241,6 +5251,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    dontPlayAudio: 0
   - text: ' '
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5253,6 +5264,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Right on, dad, that folder was just junk!
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5277,6 +5289,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Nice! Trash goes to trash.
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5301,6 +5314,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "Good, that\u2019s a folder from the local casino, not very important."
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5325,6 +5339,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Uh oh, that seems like spam, let me get it for you.
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5349,6 +5364,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: What are you doing? That is utter rubbish!
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5373,6 +5389,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "Can\u2019t you see that that\u2019s utterly worthless, dad?"
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5397,6 +5414,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Bingo! That one is important.
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5421,6 +5439,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "Doctor\u2019s appointment, very important indeed."
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5445,6 +5464,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Truly substantial, father, good work.
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5469,6 +5489,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "No, crazy! That one\u2019s super important!"
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5493,6 +5514,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "\u2026 No."
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5517,6 +5539,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "Disastrous, it should go to \u201Cimportant\u201D."
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5541,6 +5564,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Dad?? What are you doing?
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5589,6 +5613,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: That's wrong, don't you see that?
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5601,6 +5626,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: But.. The hare, it...
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5625,6 +5651,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: You know, maybe I better take care of this. Meet you in the living room. OK?
     color: {r: 0, g: 0, b: 0, a: 1}
     fontSize: 40
@@ -5649,6 +5676,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   text: {fileID: 999698369}
   writing:
     clips:
@@ -5661,12 +5689,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 281530c813609f162a7b6f8d814eea4f, type: 3}
     - {fileID: 8300000, guid: e4437b267ae76dbc89f84f6aab139f52, type: 3}
     - {fileID: 8300000, guid: f04673ef82e1c6682bfc0e4853a48786, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
-    randomVolume: 0
+    randomVolume: 0.1
     randomPitch: 0.1
     startFade: 0.1
-    endFade: 0.1
+    endFade: 0.2
     endLoop: 0
     pan: 0
     loop: 0
@@ -6067,8 +6095,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 66d8f374a11264ff4be4b707c4f542de, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6698,6 +6726,14 @@ MonoBehaviour:
   smooth: 10
   rotateAmount: 0
   smoothMode: 1
+  ignorePos:
+    x: 0
+    y: 0
+    z: 0
+  ignoreRot:
+    x: 0
+    y: 0
+    z: 0
 --- !u!1001 &2049595834
 PrefabInstance:
   m_ObjectHideFlags: 0

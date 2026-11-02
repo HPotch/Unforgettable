@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using AudioSettings = AudioManager.AudioSettings;
 
 public class Button : MonoBehaviour
 {
     public UnityEvent onPressed, onReleased, onHover, onHoverExit;
+    [SerializeField] private AudioSettings hover, click;
     private Collider2D _collider;
     private bool _pressed = false, _hovered;
 
@@ -26,6 +28,7 @@ public class Button : MonoBehaviour
 
     private void Hover()
     {
+        AudioManager.Instance.PlayAudioSettings(hover);
         _hovered = true;
         onHover.Invoke();
     }
@@ -38,6 +41,7 @@ public class Button : MonoBehaviour
 
     private void Press()
     {
+        AudioManager.Instance.PlayAudioSettings(click);
         _pressed = true;
         onPressed.Invoke();
     }

@@ -193,6 +193,63 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3806487825060868821, guid: b4cb416d88aefa6b2bd11b8078d98ef5, type: 3}
   m_PrefabInstance: {fileID: 51881020}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &89328439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.08539
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.43865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217218681296233614, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436214916445884204, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0dbfdc23c694b102da2c2817d164bded, type: 3}
 --- !u!1 &515554378
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515554379}
   - component: {fileID: 515554380}
+  - component: {fileID: 515554381}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -271,6 +329,58 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.709777, y: 4.1296353}
   m_EdgeRadius: 0
+--- !u!114 &515554381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515554378}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50513cc5a5ec17655a3e1f6b1834581f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Button
+  onPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
+  hover:
+    clips:
+    - {fileID: 8300000, guid: b3ba231f167c02b6d9dcd56d50debfb8, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    startFade: 0
+    endFade: 0
+    endLoop: 0
+    pan: 0
+    loop: 0
+    persistent: 0
+    mixerGroup: {fileID: 0}
+  click:
+    clips:
+    - {fileID: 8300000, guid: 3b576473e215f7a0a88a1f94e359eb3c, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    startFade: 0
+    endFade: 0
+    endLoop: 0
+    pan: 0
+    loop: 0
+    persistent: 0
+    mixerGroup: {fileID: 0}
 --- !u!1 &548566859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2306,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 515554381}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   fadedOut:
     m_PersistentCalls:
       m_Calls: []
@@ -2462,6 +2584,7 @@ SceneRoots:
   - {fileID: 662968369}
   - {fileID: 1080511431}
   - {fileID: 1062850018}
+  - {fileID: 89328439}
   - {fileID: 746690805}
   - {fileID: 690180617}
   - {fileID: 2095812655}

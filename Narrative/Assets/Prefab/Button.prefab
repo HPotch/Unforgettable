@@ -143,6 +143,40 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onHoverExit:
+    m_PersistentCalls:
+      m_Calls: []
+  hover:
+    clips:
+    - {fileID: 8300000, guid: b3ba231f167c02b6d9dcd56d50debfb8, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    startFade: 0
+    endFade: 0
+    endLoop: 0
+    pan: 0
+    loop: 0
+    persistent: 0
+    mixerGroup: {fileID: 0}
+  click:
+    clips:
+    - {fileID: 8300000, guid: 3b576473e215f7a0a88a1f94e359eb3c, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    startFade: 0
+    endFade: 0
+    endLoop: 0
+    pan: 0
+    loop: 0
+    persistent: 0
+    mixerGroup: {fileID: 0}
 --- !u!114 &8787576754651445841
 MonoBehaviour:
   m_ObjectHideFlags: 0

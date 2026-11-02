@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
     
     private void Awake()
     {
-        float totalWidth = balance.transform.localScale.x;
+        float totalWidth = balance.transform.localScale.x * 10f;
         float wrongPartWidth = (totalWidth - rightPartWidth) / 2f;
         wrongPart1.localScale = new Vector3(wrongPartWidth, wrongPart1.localScale.y, wrongPart1.localScale.z);
         wrongPart1.localPosition = new Vector3((wrongPartWidth / 2f + rightPartWidth / 2f) * -1f, 0f, 0f);

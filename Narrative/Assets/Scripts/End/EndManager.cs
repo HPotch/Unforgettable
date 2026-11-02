@@ -1,16 +1,18 @@
+using System;
 using System.Collections;
 using Unity.Tutorials.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using AudioSettings = AudioManager.AudioSettings;
 public class EndManager : MonoBehaviour
 {
     [SerializeField] private AnimateValue bottomFrame, leftFrame;
     [SerializeField] private float targetHeight, targetWidth, animationSpeed;
     [SerializeField] private AnimationCurve curve;
-    [SerializeField] private float darkTextWait = 2f, normalTextWait = 3f, eyeWaitTime = 2f, closeEyeWaitTime = 4f, switchToBeginTime = 3f;
+    [SerializeField] private float darkTextWait = 2f, normalTextWait = 3f, eyeWaitTime = 2f, closeEyeWaitTime = 4f, switchToBeginTime = 3f, musicWait = 4f;
     [SerializeField] private Transform darkTextObject, normalTextObject;
     [SerializeField] private SpriteAnimation[] eyeAnimations;
+    [SerializeField] private AudioSettings music;
 
     private float _startWidth, _startHeight;
 
@@ -18,6 +20,17 @@ public class EndManager : MonoBehaviour
     {
         _startHeight = bottomFrame.GetComponent<RectTransform>().sizeDelta.y;
         _startWidth = leftFrame.GetComponent<RectTransform>().sizeDelta.x;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(WaitAndMusic(musicWait));
+    }
+
+    private IEnumerator WaitAndMusic(float time)
+    {
+        yield return new WaitForSeconds(time);
+        AudioManager.Instance.PlayAudioSettings(music);
     }
 
     public void StartMiniGame()
@@ -99,6 +112,7 @@ public class EndManager : MonoBehaviour
         foreach (SpriteAnimation sa in eyeAnimations)
             sa.StartAnimationBackwards();
         yield return new WaitForSeconds(time2);
+        AudioManager.Instance.StopEveryAudio();
         SceneManager.LoadScene("01 Intro Dialogue");
     }
 }

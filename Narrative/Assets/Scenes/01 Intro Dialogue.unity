@@ -661,7 +661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 58.700012}
+  m_AnchoredPosition: {x: 0, y: 58.69995}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &239625388 stripped
@@ -1330,6 +1330,7 @@ MonoBehaviour:
     endLoop: 0
     pan: 0
     loop: 1
+    persistent: 1
     mixerGroup: {fileID: 0}
   coffee:
     clips:
@@ -1343,6 +1344,7 @@ MonoBehaviour:
     endLoop: 0
     pan: 0
     loop: 0
+    persistent: 0
     mixerGroup: {fileID: -6053920129123937342, guid: e1137160745f7748cb12798e67f972b6, type: 2}
   heart: {fileID: 1926002854}
 --- !u!114 &962398361
@@ -1409,6 +1411,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Ukko, wake up! I made you some coffee.
     color: {r: 1, g: 0.99607843, b: 0.9019608, a: 0.972549}
     fontSize: 23
@@ -1421,6 +1424,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: '* You recognize your mothers voice *'
     color: {r: 1, g: 0.99607843, b: 0.9019608, a: 0.972549}
     fontSize: 40
@@ -1445,6 +1449,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Ukko! Wake up!
     color: {r: 1, g: 0.99607843, b: 0.9019608, a: 0.972549}
     fontSize: 40
@@ -1457,6 +1462,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: '*Yawn* Yeah, coming! '
     color: {r: 1, g: 0.99607843, b: 0.9019608, a: 0.972549}
     fontSize: 40
@@ -1469,6 +1475,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: 
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1541,6 +1548,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "* Weird\u2026 That doesn\u2019t seem like my mother *"
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1577,6 +1585,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: '* She feels safe, though *'
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1589,6 +1598,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Mum?
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1613,6 +1623,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "Good morning, sweetheart, I am H\xEBlla, remember?"
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1661,6 +1672,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "* H\xEBlla is the name of your wife, you recall *"
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1685,6 +1697,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Yes, of course I knew that!
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1721,6 +1734,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "Right\u2026"
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1745,6 +1759,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Hey, it is alright, I am here for you.
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1769,6 +1784,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Hopefully today your memory will be better than yesterday.
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1781,6 +1797,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "I don\u2019t remember yesterday."
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1805,6 +1822,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: Yesterday we went to the park, see?
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1853,6 +1871,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    dontPlayAudio: 0
   - text: 
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1865,6 +1884,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: '* Of course, the park! The smell of flowers and the buzzing of bees fills your head *'
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1889,6 +1909,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "* You remember now, H\xEBlla always succeeds in getting some memory back *"
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1913,6 +1934,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: '* She has been doing this for a long long time, you recall *'
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1925,6 +1947,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: How do you feel?
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1949,6 +1972,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: '* You try to put your feelings into words *'
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -1985,6 +2009,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: '* It is no use, though *'
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -2009,6 +2034,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   - text: "Come on, let\u2019s make today worthwhile!"
     color: {r: 0, g: 0, b: 0, a: 0.972549}
     fontSize: 40
@@ -2045,6 +2071,7 @@ MonoBehaviour:
     OnEnd:
       m_PersistentCalls:
         m_Calls: []
+    dontPlayAudio: 0
   text: {fileID: 1858457039}
   writing:
     clips:
@@ -2066,6 +2093,7 @@ MonoBehaviour:
     endLoop: 0
     pan: 0
     loop: 0
+    persistent: 0
     mixerGroup: {fileID: 0}
   endFadeTime: 0.5
   loopTime: 2
@@ -2085,7 +2113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2104,6 +2132,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 962398360}
@@ -2120,6 +2152,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1051717664}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 1051717663}
+    - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -2133,6 +2169,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
@@ -2152,6 +2192,10 @@ PrefabInstance:
       value: FadeOut
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: IntroScene, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -2166,6 +2210,10 @@ PrefabInstance:
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: Fade, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: Button, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
@@ -2184,6 +2232,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -2197,6 +2249,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121038123515671198, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3581529865451727552, guid: 97c457bc1964ac33aab41964d47e8529, type: 3}
@@ -2472,6 +2528,7 @@ MonoBehaviour:
     endLoop: 0
     pan: 0
     loop: 0
+    persistent: 0
     mixerGroup: {fileID: 0}
   blurStrength: 50
   snapPercent: 10
@@ -2924,6 +2981,7 @@ GameObject:
   - component: {fileID: 1424742912}
   - component: {fileID: 1424742914}
   - component: {fileID: 1424742915}
+  - component: {fileID: 1424742916}
   m_Layer: 0
   m_Name: Logo
   m_TagString: Untagged
@@ -2940,7 +2998,7 @@ RectTransform:
   m_GameObject: {fileID: 1424742910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.38, y: 0.38, z: 0.38}
+  m_LocalScale: {x: 0.49, y: 0.49, z: 0.49}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 311449048}
@@ -3077,6 +3135,37 @@ MonoBehaviour:
   includeSprites: []
   includeImages: []
   includeText: []
+--- !u!114 &1424742916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424742910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c06d32c572772103a4a7b44c87a12df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sound
+  audio:
+    clips:
+    - {fileID: 8300000, guid: 8b57fff9dbc7f6933bfce8cd22679c91, type: 3}
+    volume: 0.5
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    startFade: 0
+    endFade: 0
+    endLoop: 0
+    pan: 0
+    loop: 0
+    persistent: 1
+    mixerGroup: {fileID: 0}
+  playOnStart: 1
+  waitTime: 0.15
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1442575076
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,6 +4682,34 @@ MonoBehaviour:
   onHoverExit:
     m_PersistentCalls:
       m_Calls: []
+  hover:
+    clips:
+    - {fileID: 8300000, guid: b3ba231f167c02b6d9dcd56d50debfb8, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    startFade: 0
+    endFade: 0
+    endLoop: 0
+    pan: 0
+    loop: 0
+    persistent: 0
+    mixerGroup: {fileID: 0}
+  click:
+    clips:
+    - {fileID: 8300000, guid: 3b576473e215f7a0a88a1f94e359eb3c, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    startFade: 0
+    endFade: 0
+    endLoop: 0
+    pan: 0
+    loop: 0
+    persistent: 0
+    mixerGroup: {fileID: 0}
 --- !u!23 &1853627708102837977
 MeshRenderer:
   m_ObjectHideFlags: 0

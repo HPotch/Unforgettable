@@ -46,6 +46,7 @@ public class DialogueManager : MonoBehaviour
         public int customNext = -1; // -1 is not custom next
         public SkipState skipState = SkipState.Skippable;
         public UnityEvent OnStart, OnEnd;
+        public bool dontPlayAudio = false;
     }
     
     private void Awake()
