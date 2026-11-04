@@ -29,7 +29,10 @@ public class Block : MonoBehaviour
 
     public void SnapToPosition(Vector2 position)
     {
+        print(Vector3.Distance(transform.position, position));
         transform.position = position;
+        foreach (BlockPart child in transform.GetComponentsInChildren<BlockPart>())
+            child.CheckSnap(false);
     }
     
     private void Awake()
@@ -82,7 +85,7 @@ public class Block : MonoBehaviour
         
         // Snap
         foreach (BlockPart child in transform.GetComponentsInChildren<BlockPart>())
-            child.CheckSnap();
+            if (child.CheckSnap(true)) break;
 
         // If not snapped, move smoothly
         if (new Vector2(transform.position.x, transform.position.y) == _targetPosition)

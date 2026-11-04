@@ -28,7 +28,7 @@ public class Button : MonoBehaviour
 
     private void Hover()
     {
-        AudioManager.Instance.PlayAudioSettings(hover);
+        if (hover.clips != null) AudioManager.Instance.PlayAudioSettings(hover);
         _hovered = true;
         onHover.Invoke();
     }
@@ -41,7 +41,7 @@ public class Button : MonoBehaviour
 
     private void Press()
     {
-        AudioManager.Instance.PlayAudioSettings(click);
+        if (hover.clips != null) AudioManager.Instance.PlayAudioSettings(click);
         _pressed = true;
         onPressed.Invoke();
     }

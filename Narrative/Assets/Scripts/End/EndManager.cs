@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Unity.Tutorials.Editor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using AudioSettings = AudioManager.AudioSettings;

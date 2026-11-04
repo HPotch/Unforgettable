@@ -9,11 +9,25 @@ public class BlockPart : MonoBehaviour
     public GridPart GetNearestGridPart()
     {
         Transform grid = BlockGrid.Instance.transform;
+        GridPart nearest = null;
+        float minDistance = float.MaxValue;
+
+        // Loop through all parts
         foreach (GridPart child in grid.GetComponentsInChildren<GridPart>())
         {
-            if (Vector2.Distance(transform.position, child.transform.position) < DiagonalLength)
-                return child;
+            float distance = Vector2.Distance(transform.position, child.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearest = child;
+            }
         }
+
+        // If in a 1x1 square, return the gridpart
+        if (nearest != null &&
+            Mathf.Abs(transform.position.x - nearest.transform.position.x) <= 0.5f &&
+            Mathf.Abs(transform.position.y - nearest.transform.position.y) <= 0.5f)
+            return nearest;
 
         return null;
     }
@@ -30,18 +44,22 @@ public class BlockPart : MonoBehaviour
         _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0.5f);
     }
 
-    private const float DiagonalLength = 0.707106781f; // sqrt(1^2 + 1^2) / 2
-
-    public void CheckSnap()
+    public bool CheckSnap(bool snapParent = true)
     {
-        if (_parentBlock.Rotating) return;
+        if (_parentBlock.Rotating) return false;
         GridPart nearestGrid = GetNearestGridPart();
         if (nearestGrid)
         {
-            _parentBlock.SnapToPosition(nearestGrid.transform.position - (transform.position - _parentBlock.transform.position));
+            if (snapParent)
+            {
+                _parentBlock.SnapToPosition(nearestGrid.transform.position - (transform.position - _parentBlock.transform.position));
+                return true;
+            }
             _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 1f);
         }
         else
             _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0.5f);
+
+        return false;
     }
 }

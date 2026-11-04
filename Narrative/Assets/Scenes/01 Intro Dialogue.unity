@@ -615,8 +615,8 @@ RectTransform:
   m_GameObject: {fileID: 143233863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2123694766}
   - {fileID: 116634685}
@@ -4948,7 +4948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
       propertyPath: portraits.Array.data[3].name
-      value: Thought
+      value: ' '
       objectReference: {fileID: 0}
     - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
       propertyPath: portraits.Array.data[0].sprite

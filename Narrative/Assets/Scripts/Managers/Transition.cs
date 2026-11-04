@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour
@@ -92,5 +93,11 @@ public class Transition : MonoBehaviour
         transform.localScale = Vector3.one * (targetScale * (forward ? 1f : 0f));
         
         if (forward && _targetScene != "") SceneManager.LoadScene(_targetScene); // Switch scene
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current.digit0Key.wasPressedThisFrame)
+            StartTransition(SceneManager.GetActiveScene().name);
     }
 }

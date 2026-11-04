@@ -1287,7 +1287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
       propertyPath: portraits.Array.data[3].name
-      value: Thought
+      value: ' '
       objectReference: {fileID: 0}
     - target: {fileID: 2232664412494872833, guid: 5af77a597ef2d82f5b5d8640ef049b5f, type: 3}
       propertyPath: portraits.Array.data[2].value
